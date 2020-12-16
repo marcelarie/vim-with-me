@@ -1,8 +1,8 @@
 # vim-with-me
-
-![alt text] (https://redmine.cautivatech.com/redmine/attachments/download/539/vim-logo-png-transparent.png)
-
 Vim clone with JavaScript.  
+
+![Vim Logo](https://download.logo.wine/logo/Vim_(text_editor)/Vim_(text_editor)-Logo.wine.png)
+
 
 # Phase 1  
 
