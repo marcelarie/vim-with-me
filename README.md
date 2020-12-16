@@ -1,6 +1,6 @@
 # vim-with-me
 
-![alt text] (https://github.com/marcelarie/vim-with-me/blob/main/logo/vim-logo.png?raw=true)
+![alt text] (./logo/vim-logo.png)
 
 Vim clone with JavaScript.  
 
