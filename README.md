@@ -1,6 +1,6 @@
 # vim-with-me
 
-![alt text] (./logo/vim-logo.png)
+![alt text] (https://redmine.cautivatech.com/redmine/attachments/download/539/vim-logo-png-transparent.png)
 
 Vim clone with JavaScript.  
 
