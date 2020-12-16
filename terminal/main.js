@@ -6,6 +6,7 @@ import {mainFolder} from "../terminal/mainFolder.js"
 // HTML
 const container = document.getElementById('container')
 const textArea = document.createElement('div')
+const terminalInput = document.createElement('div')
 
 // Creating the text area.
 
@@ -25,6 +26,38 @@ function addTextArea() {
 }
 addTextArea();
 
+
+// Add the terminal lowbar
+function addTerminalInput() {
+    terminalInput.classList.add('terminal-input')
+    terminalInput.setAttribute('contentEditable', true)
+    terminalInput.setAttribute('spellcheck', false)
+    terminalInput.setAttribute('wrap', false)
+
+
+    container.appendChild(terminalInput)
+}
+addTerminalInput();
+
+
+terminalInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        if (terminalInput.innerText.includes(':w')) {
+            let fileNames = terminalInput.innerText.split(' ')
+            fileNames.shift();
+
+            fileNames.forEach(name => {
+                mainFolder.saveFile(name, textArea.innerText)
+            })
+
+            console.log(mainFolder)
+            terminalInput.innerText = '';
+        }
+    }
+})
+
+// Add line number column
 function lineNumber() {
     const startPosition = textArea.selectionStart;
     const endPosition = textArea.selectionEnd;
@@ -35,5 +68,3 @@ function lineNumber() {
 }
 
 
-mainFolder.saveFile('filename', textArea.innerText);
-console.log(mainFolder)

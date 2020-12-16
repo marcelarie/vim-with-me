@@ -1,4 +1,3 @@
-export {Folder}
 import {File} from "./file.js"
 
 class Folder {
@@ -10,3 +9,5 @@ class Folder {
         this.files[filename] = new File(filename, content)
     }
 }
+
+export {Folder}

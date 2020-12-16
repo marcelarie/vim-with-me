@@ -28,6 +28,11 @@ body {
     background-color: var(--gruvbox-background); 
 }
 
+.hide { display: hidden; }
+.none { display: none; }
+
+
+
 /*terminal*/
 .container { }
 .text-area {
@@ -42,15 +47,28 @@ body {
     resize: none;
     overflow: hidden;
     line-height: 1.2em;
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid grey;
 }
 .number-column {
     background-color: var(--gruvbox-light-yellow);
     color: var(--gruvbox-background);
     font-size: 1.3em;
     font-family: 'Fira Code', monospace;
-    flex: 1;
-    border-bottom: 2px solid white;
+    flex: 2.5;
+}
+
+/*terminal-input*/
+.terminal-input {
+    position: absolute;
+    background-color: var(--gruvbox-background);
+    font-size: 1.5em;
+    font-family: 'Fira Code', monospace;
+    color: var(--gruvbox-green);
+    bottom: 0;
+    outline: none;
+    width: 100vw;
+    padding: 10px;
+    height: 2em;
 }
 
 /*display-flex*/
@@ -58,3 +76,6 @@ body {
     display: flex;
     flex-direction: row;
 }
+
+
+
