@@ -1,41 +1,43 @@
 # vim-with-me
 
-Vim clone with JavaScript.
+![alt text] (https://github.com/marcelarie/vim-with-me/blob/main/logo/vim-logo.png?raw=true)
 
-# Phase 1
+Vim clone with JavaScript.  
 
--[] Text area.
--[] Left number column.
--[] Color palette.
+# Phase 1  
 
-# Phase 2 
+-[] Text area.  
+-[] Left number column.  
+-[] Color palette.  
 
--[] Carret move.
--[] Save files.
--[] Normal mode.
--[] Visual mode.
--[] Insert mode.
--[] Move with h j k l.
--[] Esc to exit to normal mode.
--[] x to delete a character.
--[] dd to delete a line.
--[] yy to copy a line.
--[] u to go undo.
--[] Cntrl + R to redo.
+# Phase 2   
 
-# Phase 3 
+-[] Carret move.  
+-[] Save files.   
+-[] Normal mode.  
+-[] Visual mode.  
+-[] Insert mode.   
+-[] Move with h j k l.   
+-[] Esc to exit to normal mode.    
+-[] x to delete a character.     
+-[] dd to delete a line.    
+-[] yy to copy a line.    
+-[] u to go undo.     
+-[] Cntrl + R to redo.   
 
--[] : to open terminal mode.
--[] :%s/word/word-to-replace/g command.
--[] syntax highlighting for JS.
--[] Relative numbers.
--[] Airline 
--[] NerdTree.
--[] Split screen.
--[] .vimrc
+# Phase 3    
 
-# Phase 4 
+-[] : to open terminal mode.     
+-[] :%s/word/word-to-replace/g command.    
+-[] syntax highlighting for JS.  
+-[] Relative numbers.  
+-[] Airline.   
+-[] NerdTree.    
+-[] Split screen.   
+-[] .vimrc    
 
--[] Colorschemes.
--[] Vimtutor.
--[] 
+# Phase 4    
+
+-[] Colorschemes.   
+-[] Vimtutor.    
+-[]    
