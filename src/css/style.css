@@ -24,3 +24,37 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: var(--gruvbox-background); 
+}
+
+/*terminal*/
+.container { }
+.text-area {
+    background-color: var(--gruvbox-background); 
+    color: var(--gruvbox-fg);
+    font-size: 1.5em;
+    font-family: 'Fira Code', monospace;
+    outline: none;
+    flex: 75;
+    padding: 10px;
+    overflow-y: scroll;
+    resize: none;
+    overflow: hidden;
+    line-height: 1.2em;
+    border-bottom: 2px solid white;
+}
+.number-column {
+    background-color: var(--gruvbox-light-yellow);
+    color: var(--gruvbox-background);
+    font-size: 1.3em;
+    font-family: 'Fira Code', monospace;
+    flex: 1;
+    border-bottom: 2px solid white;
+}
+
+/*display-flex*/
+.display-flex {
+    display: flex;
+    flex-direction: row;
+}
