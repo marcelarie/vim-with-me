@@ -9,14 +9,11 @@ export const textArea = document.createElement('div')
 export const terminalInput = document.createElement('div')
 
 // Creating the text area.
-
 function addTextArea() {
     container.classList.add('display-flex')
-
     textArea.classList.add('text-area')
     textArea.setAttribute('contentEditable', false)
     textArea.setAttribute('spellcheck', false)
-
     const numberCol = document.createElement('div')
     numberCol.classList.add('number-column')
     container.appendChild(numberCol);
@@ -27,13 +24,10 @@ addTextArea();
 
 // Add the terminal lowbar
 function addTerminalInput() {
-    terminalInput.classList.add('terminal-input')
-    terminalInput.classList.add('hide')
+    terminalInput.classList.add('terminal-input', 'hide')
     terminalInput.setAttribute('contentEditable', true)
     terminalInput.setAttribute('spellcheck', false)
     terminalInput.setAttribute('wrap', false)
-
-
     container.appendChild(terminalInput)
 }
 addTerminalInput();
