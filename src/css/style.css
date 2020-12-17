@@ -28,13 +28,11 @@ body {
     background-color: var(--gruvbox-background); 
 }
 
-.hide { display: hidden; }
+.hide { visibility: hidden; }
 .none { display: none; }
 
 
-
 /*terminal*/
-.container { }
 .text-area {
     background-color: var(--gruvbox-background); 
     color: var(--gruvbox-fg);
@@ -60,6 +58,7 @@ body {
 /*terminal-input*/
 .terminal-input {
     position: absolute;
+    border-top: 1px solid var(--gruvbox-gray);
     background-color: var(--gruvbox-background);
     font-size: 1.5em;
     font-family: 'Fira Code', monospace;

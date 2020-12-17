@@ -6,9 +6,9 @@ Vim clone with JavaScript.
 
 # Phase 1  
 
--[] Text area.  
+-[x] Text area.  
 -[] Left number column.  
--[] Color palette.  
+-[x] Color palette.  
 
 # Phase 2   
 
@@ -40,4 +40,3 @@ Vim clone with JavaScript.
 
 -[] Colorschemes.   
 -[] Vimtutor.    
--[]    
