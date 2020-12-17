@@ -10,17 +10,18 @@ Vim clone with JavaScript.
 -[x] Text area.  
 -[] Left number column.  
 -[x] Color palette.  
--[] Add terminal input.
-    -[x] Creat input form.  -[x] Show input form only when : key is clicked. 
-    -[x] Hide with Esc key.
-    -[x] Add eventListener.
+-[] Add terminal input.  
+    -[x] Creat input form.  
+    -[x] Show input form only when : key is clicked.   
+    -[x] Hide with Esc key.   
+    -[x] Add eventListener.  
 
 # Phase 2   
 
 -[] Carret move.  
 -[x] Save files.   
-    -[x] if file its already saved no need to put name.
-    -[x] if filename exist alert
+    -[x] if file its already saved no need to put name.  
+    -[x] if filename exist alert.  
 -[x] Normal mode.  
 -[] Visual mode.  
 -[x] Insert mode.   
