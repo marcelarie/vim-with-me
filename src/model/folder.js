@@ -5,7 +5,7 @@ class Folder {
         this.files = files;
     }
 
-    saveFile(filename, content) {
+    createFile(filename, content) {
         this.files[filename] = new File(filename, content)
     }
 }
