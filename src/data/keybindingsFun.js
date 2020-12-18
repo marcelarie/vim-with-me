@@ -127,7 +127,7 @@ const normalMode = e => {
 document.addEventListener('keydown', normalMode)
 
 const insertMode = e => {
-    textArea.classList.remove('hideCaret')
+    textArea.classList.remove('greenCaret')
     if (vimModes.insert === true) {
         switch (e.key) {
             case 'Escape':
