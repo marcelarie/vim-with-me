@@ -104,7 +104,7 @@ const normalMode = e => {
         switch (e.key) {
             case 'h':
                 e.preventDefault();
-                getCaretPosition(textArea);
+
                 break;
             case 'j':
                 e.preventDefault();

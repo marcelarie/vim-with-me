@@ -1,7 +1,7 @@
 
 function getCaretPosition(textArea) {
     let selection = window.getSelection();
-    selection.modify('move', 'forward')
+    console.log(selection)
 };
 
 
