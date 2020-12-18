@@ -30,6 +30,7 @@ body {
 
 .hide { visibility: hidden; }
 .none { display: none; }
+.hideCaret { caret-color: transparent; }
 
 
 /*terminal*/

@@ -38,8 +38,9 @@ const escKey = e => {
             terminalInput.innerText = '';
         } else if (vimModes.insert === true) {
             modeManager('normal');
+            textArea.classList.add('hideCaret')
         } else if (vimModes.visual === true) {
-            modeManager('visual');
+            modeManager('normal');
         };
     };
 };

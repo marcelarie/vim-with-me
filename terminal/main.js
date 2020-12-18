@@ -1,7 +1,7 @@
 
-import {Folder} from "../src/model/folder.js"
-import {File} from "../src/model/file.js"
-import {mainFolder} from "../terminal/mainFolder.js"
+import { Folder } from "../src/model/folder.js"
+import { File } from "../src/model/file.js"
+import { mainFolder } from "../terminal/mainFolder.js"
 
 // HTML
 export const container = document.getElementById('container')
