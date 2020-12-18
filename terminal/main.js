@@ -12,7 +12,7 @@ export const terminalInput = document.createElement('div')
 function addTextArea() {
     container.classList.add('display-flex')
     textArea.classList.add('text-area')
-    textArea.setAttribute('contentEditable', false)
+    textArea.setAttribute('contentEditable', true)
     textArea.setAttribute('spellcheck', false)
     const numberCol = document.createElement('div')
     numberCol.classList.add('number-column')

@@ -1,18 +1,20 @@
-import {Folder} from "../model/folder.js"
-import {File} from "../model/file.js"
-import {mainFolder} from "../../terminal/mainFolder.js"
-import {textArea, terminalInput} from '../../terminal/main.js'
+import { Folder } from "../model/folder.js"
+import { File } from "../model/file.js"
+import { mainFolder } from "../../terminal/mainFolder.js"
+import { textArea, terminalInput } from '../../terminal/main.js'
+import { getCaretPosition, setCaretPosition, setSelectionRange } from '../data/caret.js'
+
 // vim modes
-const vimModes = {normal: true, insert: false, visual: false, }
+const vimModes = { normal: true, insert: false, visual: false, }
 //Vim modes change 
 function modeManager(mode) {
     switch (mode) {
         case 'normal':
             console.log('normal');
+            normalMode();
             vimModes.normal = true;
             vimModes.visual = false;
             vimModes.insert = false;
-            textArea.setAttribute('contentEditable', false);
             break;
         case 'visual':
             console.log('visual');
@@ -25,7 +27,6 @@ function modeManager(mode) {
             vimModes.insert = true;
             vimModes.normal = false;
             vimModes.visual = false;
-            textArea.setAttribute('contentEditable', true);
             textArea.focus();
             break;
     };
@@ -97,5 +98,45 @@ function quit(arr) {
 }
 
 
+const normalMode = e => {
+    document.removeEventListener('keydown', insertMode)
+    if (vimModes.normal === true && terminalInput.classList.contains('hide')) {
+        switch (e.key) {
+            case 'h':
+                e.preventDefault();
+                getCaretPosition(textArea);
+                break;
+            case 'j':
+                e.preventDefault();
+                break;
+            case 'k':
+                e.preventDefault();
+                break;
+            case 'l':
+                e.preventDefault();
+                break;
+            case 'i':
+                e.preventDefault();
+                insertMode();
+                break;
+            default:
+                e.preventDefault();
+        }
+    }
+}
+document.addEventListener('keydown', normalMode)
 
-export {modeManager, vimModes, saveFile, quit}
+const insertMode = e => {
+    if (vimModes.insert === true) {
+        switch (e.key) {
+            case 'Escape':
+                normalMode();
+                break;
+        }
+    }
+}
+document.addEventListener('keydown', insertMode)
+
+
+
+export { modeManager, vimModes, saveFile, quit }
