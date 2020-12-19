@@ -49,7 +49,6 @@ body {
     padding: 10px;
     resize: none;
     min-height: 100vh;
-    resize:none;
     overflow: hidden;
     line-height: 1.2em;
     border-bottom: 2px solid grey;
@@ -85,12 +84,3 @@ body {
 
 
 
-/*fakeCaret*/
-.fakeCaret {
-    position: absolute;
-    height: 1.2em;
-    width: 0.8em;
-    font-size: 1.7em;
-    background-color: rgba(20, 137, 0, 0.4);
-    font-family: 'Fira Code', monospace;
-}

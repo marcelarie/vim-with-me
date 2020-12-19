@@ -1,13 +1,10 @@
-import {Folder} from "../model/folder.js"
-import {File} from "../model/file.js"
 import {mainFolder} from "../../terminal/mainFolder.js"
 import {textArea, terminalInput} from '../../terminal/main.js'
-import {getCaretPosition, setCaretPosition, setSelectionRange, followCaret} from '../data/caret.js'
-import {deleteCharOnPosition} from '../data/normal.js'
+import {getCaretPosition, setCaretPosition, setSelectionRange, followCaret} from '../data/caret.js';
+import {deleteCharOnPosition, getLines} from '../data/normal.js';
 
 // vim modes
 const vimModes = {normal: true, insert: false, visual: false, }
-const fakeCaret = document.getElementById('fakeCaret')
 //Vim modes change 
 function modeManager(mode) {
     switch (mode) {
@@ -110,6 +107,7 @@ const normalMode = e => {
                 break;
             case 'j':
                 e.preventDefault();
+                getLines(textArea)
                 followCaret(textArea, getCaretPosition(e), 'j');
                 break;
             case 'k':
@@ -136,6 +134,11 @@ const normalMode = e => {
                 let visualCaretPos = getCaretPosition(e)
                 //visualMode();
                 break;
+            case 'ArrowUp':
+            case 'ArrowLeft':
+            case 'ArrowRight':
+            case 'ArrowDown':
+                break;
             default:
                 e.preventDefault();
         }
@@ -145,7 +148,6 @@ document.addEventListener('keydown', normalMode)
 
 const insertMode = e => {
     textArea.classList.remove('greenCaret')
-    fakeCaret.classList.add('hide')
     if (vimModes.insert === true) {
         switch (e.key) {
             case 'Escape':

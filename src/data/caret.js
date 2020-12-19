@@ -11,10 +11,10 @@ function followCaret(element, position, key) {
             element.setSelectionRange(position - 1, position)
             break;
         case 'j':
-            element.setSelectionRange(position - 1, position)
+            element.setSelectionRange(position + 20, position + 20 + 1)
             break;
         case 'k':
-            element.setSelectionRange(position - 1, position)
+            element.setSelectionRange(position - 20, position - 20 + 1)
             break;
         case 'l':
             element.setSelectionRange(position + 1, position + 2)
@@ -33,5 +33,6 @@ function setSelectionRange(element, position) {
     element.focus();
     element.setSelectionRange(position, position)
 };
+
 
 export {getCaretPosition, setCaretPosition, setSelectionRange, followCaret};
