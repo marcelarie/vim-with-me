@@ -2,11 +2,12 @@ import {Folder} from "../model/folder.js"
 import {File} from "../model/file.js"
 import {mainFolder} from "../../terminal/mainFolder.js"
 import {textArea, terminalInput} from '../../terminal/main.js'
-import {getCaretPosition, setCaretPosition, setSelectionRange, getElementOnCaret} from '../data/caret.js'
+import {getCaretPosition, setCaretPosition, setSelectionRange, followCaret} from '../data/caret.js'
 import {deleteCharOnPosition} from '../data/normal.js'
 
 // vim modes
 const vimModes = {normal: true, insert: false, visual: false, }
+const fakeCaret = document.getElementById('fakeCaret')
 //Vim modes change 
 function modeManager(mode) {
     switch (mode) {
@@ -121,16 +122,27 @@ const normalMode = e => {
                 break;
             case 'x':
                 e.preventDefault();
-                deleteCharOnPosition(getElementOnCaret(), getCaretPosition());
+                deleteCharOnPosition(textArea, getCaretPosition(e));
                 break;
             case 'v':
                 e.preventDefault();
                 //visualMode();
                 break;
             case 'ArrowLeft':
+                fakeCaret.classList.remove('hide')
+                followCaret(fakeCaret, 'ArrowLeft');
+                break;
             case 'ArrowRight':
+                fakeCaret.classList.remove('hide')
+                followCaret(fakeCaret, 'ArrowRight');
+                break;
             case 'ArrowUp':
+                fakeCaret.classList.remove('hide')
+                followCaret(fakeCaret, 'ArrowUp');
+                break;
             case 'ArrowDown':
+                fakeCaret.classList.remove('hide')
+                followCaret(fakeCaret, 'ArrowDown');
                 break;
             default:
                 e.preventDefault();
@@ -141,6 +153,7 @@ document.addEventListener('keydown', normalMode)
 
 const insertMode = e => {
     textArea.classList.remove('greenCaret')
+    fakeCaret.classList.add('hide')
     if (vimModes.insert === true) {
         switch (e.key) {
             case 'Escape':

@@ -1,8 +1,8 @@
-import { Folder } from "../model/folder.js";
-import { File } from "../model/file.js";
-import { mainFolder } from "../../terminal/mainFolder.js";
-import { textArea, terminalInput } from '../../terminal/main.js';
-import { modeManager, vimModes, saveFile, quit } from '../data/keybindingsFun.js';
+import {Folder} from "../model/folder.js";
+import {File} from "../model/file.js";
+import {mainFolder} from "../../terminal/mainFolder.js";
+import {textArea, terminalInput} from '../../terminal/main.js';
+import {modeManager, vimModes, saveFile, quit} from '../data/keybindingsFun.js';
 
 
 // Add event listener to terminal input
