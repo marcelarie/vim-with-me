@@ -1,11 +1,11 @@
-import { Folder } from "../model/folder.js"
-import { File } from "../model/file.js"
-import { mainFolder } from "../../terminal/mainFolder.js"
-import { textArea, terminalInput } from '../../terminal/main.js'
-import { getCaretPosition, setCaretPosition, setSelectionRange } from '../data/caret.js'
+import {Folder} from "../model/folder.js"
+import {File} from "../model/file.js"
+import {mainFolder} from "../../terminal/mainFolder.js"
+import {textArea, terminalInput} from '../../terminal/main.js'
+import {getCaretPosition, setCaretPosition, setSelectionRange} from '../data/caret.js'
 
 // vim modes
-const vimModes = { normal: true, insert: false, visual: false, }
+const vimModes = {normal: true, insert: false, visual: false, }
 //Vim modes change 
 function modeManager(mode) {
     switch (mode) {
@@ -104,7 +104,6 @@ const normalMode = e => {
         switch (e.key) {
             case 'h':
                 e.preventDefault();
-
                 break;
             case 'j':
                 e.preventDefault();
@@ -118,6 +117,15 @@ const normalMode = e => {
             case 'i':
                 e.preventDefault();
                 insertMode();
+                break;
+            case 'v':
+                e.preventDefault();
+                //visualMode();
+                break;
+            case 'ArrowLeft':
+            case 'ArrowRight':
+            case 'ArrowUp':
+            case 'ArrowDown':
                 break;
             default:
                 e.preventDefault();
@@ -140,4 +148,4 @@ document.addEventListener('keydown', insertMode)
 
 
 
-export { modeManager, vimModes, saveFile, quit }
+export {modeManager, vimModes, saveFile, quit}
