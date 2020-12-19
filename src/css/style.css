@@ -56,9 +56,16 @@ body {
 .number-column {
     background-color: var(--gruvbox-light-yellow);
     color: var(--gruvbox-background);
-    font-size: 1.3em;
+    font-size: 1.5em;
+    line-height: 1.2em;
     font-family: 'Fira Code', monospace;
-    flex: 2.5;
+    display: flex;
+    flex-direction: column;
+    padding: 10px ;
+}
+.number-left {
+    width: 1em;
+    height: 1.em;
 }
 
 /*terminal-input*/

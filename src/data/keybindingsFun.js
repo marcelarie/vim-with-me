@@ -1,3 +1,4 @@
+import {lineNumber} from '../../terminal/main.js'
 import {mainFolder} from "../../terminal/mainFolder.js"
 import {textArea, terminalInput} from '../../terminal/main.js'
 import {getCaretPosition, setCaretPosition, setSelectionRange, followCaret} from '../data/caret.js';
