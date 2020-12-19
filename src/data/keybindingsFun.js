@@ -2,7 +2,8 @@ import {Folder} from "../model/folder.js"
 import {File} from "../model/file.js"
 import {mainFolder} from "../../terminal/mainFolder.js"
 import {textArea, terminalInput} from '../../terminal/main.js'
-import {getCaretPosition, setCaretPosition, setSelectionRange} from '../data/caret.js'
+import {getCaretPosition, setCaretPosition, setSelectionRange, getElementOnCaret} from '../data/caret.js'
+import {deleteCharOnPosition} from '../data/normal.js'
 
 // vim modes
 const vimModes = {normal: true, insert: false, visual: false, }
@@ -117,6 +118,10 @@ const normalMode = e => {
             case 'i':
                 e.preventDefault();
                 insertMode();
+                break;
+            case 'x':
+                e.preventDefault();
+                deleteCharOnPosition(getElementOnCaret(), getCaretPosition());
                 break;
             case 'v':
                 e.preventDefault();

@@ -1,34 +1,16 @@
 
-function getCaretPosition(textArea) {
+function getCaretPosition() {
     let selection = window.getSelection();
-    console.log(selection.anchorOffset)
-    return selection;
+    return selection.focusOffset;
+};
+
+function getElementOnCaret() {
+    let selection = window.getSelection();
+    return selection.anchorNode.parentElement
 };
 
 
-// function setCaretPosition() { };
-
-function setCaretPosition(elemId, caretPos) {
-    var elem = document.getElementById(elemId);
-
-    if (elem != null) {
-        if (elem.createTextRange) {
-            var range = elem.createTextRange();
-            console.log(range)
-            range.move('character', caretPos);
-            range.select();
-        }
-        else {
-            if (elem.selectionStart) {
-                elem.focus();
-                elem.setSelectionRange(caretPos, caretPos);
-            }
-            else
-                elem.focus();
-        }
-    }
-}
-
+function setCaretPosition() {}
 function setSelectionRange() {};
 
-export {getCaretPosition, setCaretPosition, setSelectionRange};
+export {getCaretPosition, setCaretPosition, setSelectionRange, getElementOnCaret};
