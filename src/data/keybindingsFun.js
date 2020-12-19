@@ -52,7 +52,7 @@ function saveFile(fileNames) {
     let mainFiles = Object.keys(mainFolder.files)
     if (fileNames.length <= 0) {
         if (mainFiles.length > 0) {
-            mainFolder.files[currentFile(currentFileId)].content = textArea.innerText;
+            mainFolder.files[currentFile(currentFileId)].content = textArea.value;
             console.log(mainFolder)
         } else {
             alert('Please add a name to the file with :w name-of-file.');
@@ -60,7 +60,7 @@ function saveFile(fileNames) {
     } else {
         fileNames.forEach(name => {
             if (!mainFiles.includes(name)) {
-                mainFolder.createFile(name, textArea.innerText);
+                mainFolder.createFile(name, textArea.value);
                 currentFileId = mainFolder.files[name].id
             } else {
                 alert('Filename already exists.')
@@ -74,16 +74,16 @@ function saveFile(fileNames) {
 
 // quit with :q
 function quit(arr) {
-    if (arr.length <= 0 && textArea.innerText === '') {
+    if (arr.length <= 0 && textArea.value === '') {
         window.close();
-    } else if (arr.length <= 0 && textArea.innerText !== '') {
+    } else if (arr.length <= 0 && textArea.value !== '') {
         alert('Save your file first with :w name-of-file');
         terminalInput.innerText = '';
         terminalInput.classList.toggle('hide')
     } else if (arr.length >= 1) {
         let fileNotify = false;
         arr.forEach(file => {
-            file.content === textArea.innerText ? fileNotify = true : file.content;
+            file.content === textArea.value ? fileNotify = true : file.content;
         });
 
         if (fileNotify === true) {
