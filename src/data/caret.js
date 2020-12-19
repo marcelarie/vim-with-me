@@ -5,27 +5,22 @@ function getCaretPosition(e) {
 };
 
 
-function followCaret(element, arrowDirection) {
-    let selection = window.getSelection();
-    const caretX = selection.getRangeAt(0).getBoundingClientRect().left
-    const caretY = selection.getRangeAt(0).getBoundingClientRect().top
-
-    switch (arrowDirection) {
-        case 'ArrowRight':
-            element.style.left = caretX + 10 + 'px';
-            element.style.top = caretY + 'px';
+function followCaret(element, position, key) {
+    switch (key) {
+        case 'h':
+            element.setSelectionRange(position - 1, position)
             break;
-        case 'ArrowLeft':
-            element.style.left = caretX - 18 + 'px';
-            element.style.top = caretY + 'px';
+        case 'j':
+            element.setSelectionRange(position - 1, position)
             break;
-        case 'ArrowUp':
-            element.style.left = caretX + 'px';
-            element.style.top = caretY - 30 + 'px';
+        case 'k':
+            element.setSelectionRange(position - 1, position)
             break;
-        case 'ArrowDown':
-            element.style.left = caretX + 'px';
-            element.style.top = caretY + 30 + 'px';
+        case 'l':
+            element.setSelectionRange(position + 1, position + 2)
+            break;
+        case 'x':
+            element.setSelectionRange(position, position + 1)
             break;
     }
 }

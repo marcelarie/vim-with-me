@@ -106,15 +106,19 @@ const normalMode = e => {
         switch (e.key) {
             case 'h':
                 e.preventDefault();
+                followCaret(textArea, getCaretPosition(e), 'h');
                 break;
             case 'j':
                 e.preventDefault();
+                followCaret(textArea, getCaretPosition(e), 'j');
                 break;
             case 'k':
                 e.preventDefault();
+                followCaret(textArea, getCaretPosition(e), 'k');
                 break;
             case 'l':
                 e.preventDefault();
+                followCaret(textArea, getCaretPosition(e), 'l');
                 break;
             case 'i':
                 e.preventDefault();
@@ -125,26 +129,12 @@ const normalMode = e => {
                 let oldCaretPos = getCaretPosition(e)
                 deleteCharOnPosition(textArea, getCaretPosition(e));
                 setCaretPosition(textArea, oldCaretPos)
+                followCaret(textArea, getCaretPosition(e), 'x');
                 break;
             case 'v':
                 e.preventDefault();
+                let visualCaretPos = getCaretPosition(e)
                 //visualMode();
-                break;
-            case 'ArrowLeft':
-                // fakeCaret.classList.remove('hide')
-                followCaret(fakeCaret, 'ArrowLeft');
-                break;
-            case 'ArrowRight':
-                // fakeCaret.classList.remove('hide')
-                followCaret(fakeCaret, 'ArrowRight');
-                break;
-            case 'ArrowUp':
-                // fakeCaret.classList.remove('hide')
-                followCaret(fakeCaret, 'ArrowUp');
-                break;
-            case 'ArrowDown':
-                // fakeCaret.classList.remove('hide')
-                followCaret(fakeCaret, 'ArrowDown');
                 break;
             default:
                 e.preventDefault();

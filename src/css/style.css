@@ -32,6 +32,11 @@ body {
 .none { display: none; }
 .greenCaret { caret-color: var(--gruvbox-green); }
 
+::selection {
+  color: var(--gruvbox-background);
+  background: var(--gruvbox-light-green);
+}
+
 
 /*terminal*/
 .text-area {
