@@ -1,7 +1,6 @@
 
 function getCaretPosition(e) {
     // let selection = window.getSelection();
-    console.log(e.target.selectionStart)
     return e.target.selectionStart;
 };
 
@@ -32,10 +31,12 @@ function followCaret(element, arrowDirection) {
 }
 
 
-function setCaretPosition() {}
+function setCaretPosition(element, position) {
+    element.setSelectionRange(position, position)
+}
 function setSelectionRange(element, position) {
     element.focus();
-    element.setSelectionRange(position, position + 1)
+    element.setSelectionRange(position, position)
 };
 
 export {getCaretPosition, setCaretPosition, setSelectionRange, followCaret};

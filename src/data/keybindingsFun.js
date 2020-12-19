@@ -122,26 +122,28 @@ const normalMode = e => {
                 break;
             case 'x':
                 e.preventDefault();
+                let oldCaretPos = getCaretPosition(e)
                 deleteCharOnPosition(textArea, getCaretPosition(e));
+                setCaretPosition(textArea, oldCaretPos)
                 break;
             case 'v':
                 e.preventDefault();
                 //visualMode();
                 break;
             case 'ArrowLeft':
-                fakeCaret.classList.remove('hide')
+                // fakeCaret.classList.remove('hide')
                 followCaret(fakeCaret, 'ArrowLeft');
                 break;
             case 'ArrowRight':
-                fakeCaret.classList.remove('hide')
+                // fakeCaret.classList.remove('hide')
                 followCaret(fakeCaret, 'ArrowRight');
                 break;
             case 'ArrowUp':
-                fakeCaret.classList.remove('hide')
+                // fakeCaret.classList.remove('hide')
                 followCaret(fakeCaret, 'ArrowUp');
                 break;
             case 'ArrowDown':
-                fakeCaret.classList.remove('hide')
+                // fakeCaret.classList.remove('hide')
                 followCaret(fakeCaret, 'ArrowDown');
                 break;
             default:
