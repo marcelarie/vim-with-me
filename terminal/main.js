@@ -21,9 +21,8 @@ function addTextArea() {
     //left numbers
     numberCol.classList.add('number-column')
     //nerd tree
-    nerdTree.classList.add('nerd-tree')
+    nerdTree.classList.add('nerd-tree', 'none')
     nerdTree.id = 'nerd-tree'
-    nerdTree.classList.add('none')
 
     container.appendChild(nerdTree);
     container.appendChild(numberCol);

@@ -29,14 +29,6 @@ body {
     background-color: var(--gruvbox-background); 
 }
 
-.hide { visibility: hidden; }
-.none { display: none; }
-.greenCaret { caret-color: var(--gruvbox-green); }
-
-::selection {
-  color: var(--gruvbox-background);
-  background: var(--gruvbox-light-green);
-}
 
 
 /*terminal*/
@@ -91,8 +83,31 @@ body {
 /*nerd-tree*/
 .nerd-tree {
     background-color: var(--gruvbox-background);
-    min-width: 25%;
+    min-width: 20%;
     border-right: 5px solid var(--gruvbox-grey-comment);
+    display: flex;
+    flex-direction: column;
+    padding-top: 2em;
+}
+.file-on-tree {
+    font-size: 1.5em;
+    font-family: 'Fira Code', monospace;
+    color: var(--gruvbox-green);
+    justify-content: center;
+    margin-left: 2.5em;
+    margin-right: 0.5em;
+    text-align: left;
+}
+.file-on-focus {
+    color: var(--gruvbox-light-green);
+}
+
+.folders {
+    font-size: 1.5em;
+    font-family: 'Fira Code', monospace;
+    color: var(--gruvbox-grey-comment);
+    margin-left: 1em;
+    text-align: left;
 }
 
 /*display-flex*/
@@ -103,3 +118,11 @@ body {
 
 
 
+/*hide&else classes*/
+.none { display:none; }
+.hide { visibility: hidden; }
+.greenCaret { caret-color: var(--gruvbox-green); }
+::selection {
+  color: var(--gruvbox-background);
+  background: var(--gruvbox-light-green);
+}

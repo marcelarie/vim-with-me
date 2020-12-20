@@ -1,7 +1,6 @@
 
 function getCaretPosition(e) {
     // let selection = window.getSelection();
-    console.log(e.target.selectionStart)
     return e.target.selectionStart;
 };
 

@@ -3,9 +3,11 @@ import {mainFolder} from "../../terminal/mainFolder.js"
 import {textArea, terminalInput} from '../../terminal/main.js'
 import {getCaretPosition, setCaretPosition, setSelectionRange, followCaret} from '../data/caret.js';
 import {deleteCharOnPosition, getLines} from '../data/normal.js';
+import {files} from '../../src/listeners/keybindings.js'
 
 // vim modes
 const vimModes = {normal: true, insert: false, visual: false, }
+let counterNerdTree = 0;
 //Vim modes change 
 function modeManager(mode) {
     switch (mode) {
@@ -102,46 +104,74 @@ const normalMode = e => {
     document.removeEventListener('keydown', insertMode)
     if (vimModes.normal === true && terminalInput.classList.contains('hide')) {
         // lineNumber(getLines(textArea))
-        switch (e.key) {
-            case 'h':
-                e.preventDefault();
-                followCaret(textArea, getCaretPosition(e), 'h');
-                break;
-            case 'j':
-                e.preventDefault();
-                followCaret(textArea, getCaretPosition(e), 'j');
-                break;
-            case 'k':
-                e.preventDefault();
-                followCaret(textArea, getCaretPosition(e), 'k');
-                break;
-            case 'l':
-                e.preventDefault();
-                followCaret(textArea, getCaretPosition(e), 'l');
-                break;
-            case 'i':
-                e.preventDefault();
-                insertMode();
-                break;
-            case 'x':
-                e.preventDefault();
-                let oldCaretPos = getCaretPosition(e)
-                deleteCharOnPosition(textArea, getCaretPosition(e));
-                setCaretPosition(textArea, oldCaretPos)
-                followCaret(textArea, getCaretPosition(e), 'x');
-                break;
-            case 'v':
-                e.preventDefault();
-                let visualCaretPos = getCaretPosition(e)
-                //visualMode();
-                break;
-            case 'ArrowUp':
-            case 'ArrowLeft':
-            case 'ArrowRight':
-            case 'ArrowDown':
-                break;
-            default:
-                e.preventDefault();
+        const nerdTree = document.getElementById('nerd-tree')
+        if (nerdTree.classList.contains('none')) {
+            switch (e.key) {
+                case 'h':
+                    e.preventDefault();
+                    followCaret(textArea, getCaretPosition(e), 'h');
+                    break;
+                case 'j':
+                    e.preventDefault();
+                    followCaret(textArea, getCaretPosition(e), 'j');
+                    break;
+                case 'k':
+                    e.preventDefault();
+                    followCaret(textArea, getCaretPosition(e), 'k');
+                    break;
+                case 'l':
+                    e.preventDefault();
+                    followCaret(textArea, getCaretPosition(e), 'l');
+                    break;
+                case 'i':
+                    e.preventDefault();
+                    insertMode();
+                    break;
+                case 'x':
+                    e.preventDefault();
+                    let oldCaretPos = getCaretPosition(e)
+                    deleteCharOnPosition(textArea, getCaretPosition(e));
+                    setCaretPosition(textArea, oldCaretPos)
+                    followCaret(textArea, getCaretPosition(e), 'x');
+                    break;
+                case 'v':
+                    e.preventDefault();
+                    let visualCaretPos = getCaretPosition(e)
+                    //visualMode();
+                    break;
+                case 'ArrowUp':
+                case 'ArrowLeft':
+                case 'ArrowRight':
+                case 'ArrowDown':
+                    break;
+                default:
+                    e.preventDefault();
+            }
+        } else {
+            let files = []
+            document.querySelectorAll('.file-on-tree').forEach(file => files.push(file))
+            switch (e.key) {
+                case 'j':
+                    e.preventDefault();
+                    counterNerdTree++;
+                    counterNerdTree >= files.length ? counterNerdTree = 0 : files;
+                    files.forEach(filename => filename.classList.remove('file-on-focus'))
+                    files[counterNerdTree].classList.add('file-on-focus')
+                    break;
+                case 'k':
+                    e.preventDefault();
+                    counterNerdTree--;
+                    counterNerdTree === -1 ? counterNerdTree = files.length - 1 : files;
+                    files.forEach(filename => filename.classList.remove('file-on-focus'))
+                    files[counterNerdTree].classList.add('file-on-focus')
+                    break;
+                case 'Enter':
+                    e.preventDefault();
+                    console.log('enter file');
+                    break;
+                default:
+                    e.preventDefault();
+            }
         }
     }
 }
