@@ -88,6 +88,13 @@ body {
     height: 2em;
 }
 
+/*nerd-tree*/
+.nerd-tree {
+    background-color: var(--gruvbox-background);
+    min-width: 25%;
+    border-right: 5px solid var(--gruvbox-grey-comment);
+}
+
 /*display-flex*/
 .display-flex {
     display: flex;

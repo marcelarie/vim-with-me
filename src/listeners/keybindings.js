@@ -56,6 +56,7 @@ const insertMode = e => {
 document.addEventListener('keydown', insertMode);
 
 
+// listener on every input of textArea
 textArea.addEventListener('input', () => {
     lineNumber(getLines(textArea));
 })
