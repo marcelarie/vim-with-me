@@ -4,6 +4,7 @@ import {mainFolder} from "../../terminal/mainFolder.js";
 import {textArea, terminalInput, lineNumber} from '../../terminal/main.js';
 import {modeManager, vimModes, saveFile, quit} from '../data/keybindingsFun.js';
 import {getLines} from '../data/normal.js'
+import {addNerdFiles} from '../../terminal/nerdTree.js'
 
 
 // Add event listener to terminal input
@@ -61,4 +62,14 @@ textArea.addEventListener('input', () => {
     lineNumber(getLines(textArea));
 })
 
+
+// listener on nerdTree 
+
+document.addEventListener('keydown', e => {
+    if (e.key === 'N' && vimModes.normal === true) {
+        const nerdTree = document.getElementById('nerd-tree')
+        nerdTree.classList.toggle('none')
+        addNerdFiles();
+    }
+})
 

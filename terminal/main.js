@@ -14,12 +14,17 @@ export const nerdTree = document.createElement('div')
 // Creating the text area.
 function addTextArea() {
     container.classList.add('display-flex')
+    //text area
     textArea.classList.add('text-area')
     textArea.setAttribute('contentEditable', true)
     textArea.setAttribute('spellcheck', false)
+    //left numbers
     numberCol.classList.add('number-column')
+    //nerd tree
     nerdTree.classList.add('nerd-tree')
-    // nerdTree.classList.add('none')
+    nerdTree.id = 'nerd-tree'
+    nerdTree.classList.add('none')
+
     container.appendChild(nerdTree);
     container.appendChild(numberCol);
     container.appendChild(textArea);
@@ -51,6 +56,7 @@ function lineNumber(items) {
         numberCol.appendChild(newItem)
     }
 }
+
 
 
 
