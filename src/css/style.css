@@ -100,6 +100,10 @@ body {
 }
 .file-on-focus {
     color: var(--gruvbox-light-green);
+    font-weight: bold;
+}
+.current-file {
+    text-decoration: underline;
 }
 
 .folders {

@@ -1,4 +1,5 @@
 import {mainFolder} from "../terminal/mainFolder.js"
+import {currentFileId} from '../src/data/keybindingsFun.js'
 
 function addNerdFiles() {
     const nerdTree = document.getElementById('nerd-tree')
@@ -17,4 +18,13 @@ function addNerdFiles() {
     })
 }
 
-export {addNerdFiles}
+function currentFileMark() {
+    const files = Object.values(mainFolder.files)
+    files.forEach(file => {
+        if (file.id === currentFileId) {
+            document.getElementById(file.name).classList.add('current-file')
+        }
+    })
+}
+
+export {addNerdFiles, currentFileMark}

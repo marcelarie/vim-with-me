@@ -4,9 +4,8 @@ import {mainFolder} from "../../terminal/mainFolder.js";
 import {textArea, terminalInput, lineNumber} from '../../terminal/main.js';
 import {modeManager, vimModes, saveFile, quit} from '../data/keybindingsFun.js';
 import {getLines} from '../data/normal.js'
-import {addNerdFiles} from '../../terminal/nerdTree.js'
+import {addNerdFiles, currentFileMark} from '../../terminal/nerdTree.js'
 
-export let files = []
 
 // Add event listener to terminal input
 terminalInput.addEventListener('keydown', e => {
@@ -68,11 +67,11 @@ textArea.addEventListener('input', () => {
 
 document.addEventListener('keydown', e => {
     if (e.key === 'N' && vimModes.normal === true && terminalInput.classList.contains('hide')) {
-        document.querySelectorAll('.file-on-tree').forEach(file => files.push(file))
         const nerdTree = document.getElementById('nerd-tree')
         nerdTree.classList.toggle('none')
         nerdTree.focus();
         addNerdFiles();
+        currentFileMark();
     }
 })
 

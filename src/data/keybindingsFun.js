@@ -3,7 +3,6 @@ import {mainFolder} from "../../terminal/mainFolder.js"
 import {textArea, terminalInput} from '../../terminal/main.js'
 import {getCaretPosition, setCaretPosition, setSelectionRange, followCaret} from '../data/caret.js';
 import {deleteCharOnPosition, getLines} from '../data/normal.js';
-import {files} from '../../src/listeners/keybindings.js'
 
 // vim modes
 const vimModes = {normal: true, insert: false, visual: false, }
@@ -34,7 +33,7 @@ function modeManager(mode) {
     };
 };
 
-let currentFileId = '';
+export let currentFileId = '';
 function currentFile(currentFileId) {
     let mainFiles = Object.keys(mainFolder.files)
     let fileToOverwrite = ''
