@@ -148,7 +148,9 @@ const normalMode = e => {
             }
         } else {
             let files = []
-            document.querySelectorAll('.file-on-tree').forEach(file => files.push(file))
+            const fileList = document.querySelectorAll('.file-on-tree');
+            const mainFiles = mainFolder.files
+            fileList.forEach(file => files.push(file));
             switch (e.key) {
                 case 'j':
                     e.preventDefault();
@@ -166,7 +168,16 @@ const normalMode = e => {
                     break;
                 case 'Enter':
                     e.preventDefault();
-                    console.log('enter file');
+                    fileList.forEach(file => {
+                        if (file.classList.contains('file-on-focus')) {
+                            const selectedFile = file.textContent
+                            currentFileId = mainFiles[selectedFile].id
+                            textArea.value = mainFiles[selectedFile].content
+                            nerdTree.classList.toggle('none')
+                            console.log(selectedFile)
+                            console.log(mainFiles[selectedFile].content)
+                        }
+                    })
                     break;
                 default:
                     e.preventDefault();
