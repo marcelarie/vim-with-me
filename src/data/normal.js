@@ -8,7 +8,6 @@ function deleteCharOnPosition(element, position) {
 
 function getLines(element, position) {
     let text = element.value.split('\n');
-    console.log(text)
     return text
 }
 

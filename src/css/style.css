@@ -16,6 +16,7 @@
     --gruvbox-light-purple: #d3869b;
     --gruvbox-light-aqua: #8ec07c;
     --gruvbox-fg: #ebdbb2;
+    --gruvbox-grey-comment: #928374;
 }
 
 * {
@@ -43,29 +44,33 @@ body {
     background-color: var(--gruvbox-background); 
     color: var(--gruvbox-fg);
     font-size: 1.5em;
+    line-height: 1.2em;
     font-family: 'Fira Code', monospace;
     outline: none;
+    border: none;
     flex: 75;
-    padding: 10px;
     resize: none;
     min-height: 100vh;
     overflow: hidden;
-    line-height: 1.2em;
-    border-bottom: 2px solid grey;
+    padding: 10px;
 }
 .number-column {
-    background-color: var(--gruvbox-light-yellow);
-    color: var(--gruvbox-background);
-    font-size: 1.5em;
-    line-height: 1.2em;
+    background-color: var(--gruvbox-background);
+    color: var(--gruvbox-grey-comment);
+    font-size: 1.4em;
     font-family: 'Fira Code', monospace;
     display: flex;
     flex-direction: column;
-    padding: 10px ;
+    padding: 10px;
+    min-height: 100vh;
 }
 .number-left {
-    width: 1em;
-    height: 1.em;
+    line-height: 1.2em;
+    border: 1px solid transparent;
+    text-align: right;
+}
+.last-number-left {
+    color: var(--gruvbox-yellow);
 }
 
 /*terminal-input*/

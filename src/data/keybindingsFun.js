@@ -101,6 +101,7 @@ function quit(arr) {
 const normalMode = e => {
     document.removeEventListener('keydown', insertMode)
     if (vimModes.normal === true && terminalInput.classList.contains('hide')) {
+        // lineNumber(getLines(textArea))
         switch (e.key) {
             case 'h':
                 e.preventDefault();
@@ -108,7 +109,6 @@ const normalMode = e => {
                 break;
             case 'j':
                 e.preventDefault();
-                getLines(textArea)
                 followCaret(textArea, getCaretPosition(e), 'j');
                 break;
             case 'k':

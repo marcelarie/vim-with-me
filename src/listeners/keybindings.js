@@ -1,8 +1,9 @@
 import {Folder} from "../model/folder.js";
 import {File} from "../model/file.js";
 import {mainFolder} from "../../terminal/mainFolder.js";
-import {textArea, terminalInput} from '../../terminal/main.js';
+import {textArea, terminalInput, lineNumber} from '../../terminal/main.js';
 import {modeManager, vimModes, saveFile, quit} from '../data/keybindingsFun.js';
+import {getLines} from '../data/normal.js'
 
 
 // Add event listener to terminal input
@@ -55,6 +56,8 @@ const insertMode = e => {
 document.addEventListener('keydown', insertMode);
 
 
-
+textArea.addEventListener('input', () => {
+    lineNumber(getLines(textArea));
+})
 
 

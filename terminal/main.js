@@ -19,6 +19,7 @@ function addTextArea() {
     numberCol.classList.add('number-column')
     container.appendChild(numberCol);
     container.appendChild(textArea);
+    lineNumber(getLines(textArea));
 }
 addTextArea();
 
@@ -37,8 +38,7 @@ addTerminalInput();
 
 
 // Add line number column
-function lineNumber(element, items) {
-    console.log('this works')
+function lineNumber(items) {
     numberCol.innerHTML = ''
     for (let item = 0; item < items.length; item++) {
         let newItem = document.createElement('div')
@@ -46,11 +46,8 @@ function lineNumber(element, items) {
         newItem.textContent = item
         numberCol.appendChild(newItem)
     }
-
-
 }
 
-document.addEventListener('keydown', lineNumber(textArea, getLines(textArea)));
 
 export {lineNumber}
 
