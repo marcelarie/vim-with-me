@@ -4,7 +4,17 @@ import {File} from "../src/model/file.js"
 
 export const mainFolder = new Folder()
 
-mainFolder.createFile('marcel', 'abcdefg')
+mainFolder.createFile('index.html',
+    `<!DOCTYPE html>
+    < html lang = "en" >
+    <head>
+        <meta charset="UTF-8">
+            <title></title>
+    </head>
+        <body>
+
+        </body>
+    </html> `)
 mainFolder.createFile('alba', 'amor')
 mainFolder.createFile('jose', 'redes')
 mainFolder.createFile('juan', 'creciendo')

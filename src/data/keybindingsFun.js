@@ -174,8 +174,7 @@ const normalMode = e => {
                             currentFileId = mainFiles[selectedFile].id
                             textArea.value = mainFiles[selectedFile].content
                             nerdTree.classList.toggle('none')
-                            console.log(selectedFile)
-                            console.log(mainFiles[selectedFile].content)
+                            lineNumber(getLines(textArea))
                         }
                     })
                     break;
