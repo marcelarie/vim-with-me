@@ -1,4 +1,3 @@
-import {getLines} from "../data/normal.js"
 import {positionsToLine} from "../data/visual.js"
 import {textArea} from "../../terminal/main.js"
 
@@ -12,6 +11,7 @@ function followCaret(element, position, key) {
     switch (key) {
         case 'h':
             element.setSelectionRange(position - 1, position)
+            console.log(positionsToLine(textArea.value, 'up', caretPosition));
             break;
         case 'j':
             element.setSelectionRange(position + 91, position + 91 + 1)
@@ -23,7 +23,6 @@ function followCaret(element, position, key) {
             element.setSelectionRange(position + 1, position + 2)
             break;
         case 'x':
-            console.log(positionsToLine(getLines(textArea), 'up', caretPosition));
             element.setSelectionRange(position, position + 1)
             break;
     }

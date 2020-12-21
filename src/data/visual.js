@@ -1,15 +1,14 @@
+import {getLines} from "../data/normal.js"
 
-function positionsToLine(linesText, direction, position) {
-    let characterCount = 0;
-    Object.entries(linesText).forEach(line => {
-        characterCount += line[1].length;
-        console.log(position)
-        if (characterCount >= position) {
-            console.log(line[1])
-            console.log(characterCount)
-        }
-    })
+function positionsToLine(text, direction, position) {
+    const splitted = text.split('');
+    let result = ''
+    for (let character = 0; character < position; character++) {
+        result += splitted[character]
+    }
+    let final = result.split('\n')
+    return final.length - 1
 }
 
 
-export { positionsToLine }
+export {positionsToLine}
