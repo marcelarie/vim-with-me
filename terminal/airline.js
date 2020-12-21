@@ -1,5 +1,4 @@
-
-const wordCounter = document.getElementById('word-counter-air-line')
+import { textArea } from '../terminal/main.js'
 
 function showVimMode(mode) {
     const modes = document.getElementById('mode-air-line')
@@ -47,4 +46,15 @@ function showLanguage(file) {
     return fileType
 }
 
-export { showVimMode, showFilePath, showLanguage }
+function showWordCounterTotal(element) {
+    const totalCharacters = element.value.length
+    return totalCharacters;
+}
+
+function showWordCounterRealTime(total, input) {
+    const wordCounter = document.getElementById('word-counter-air-line')
+    const percentage = '%';
+    wordCounter.textContent = percentage + '%' + ' ' + input + '/' + total;
+}
+
+export { showVimMode, showFilePath, showLanguage, showWordCounterTotal, showWordCounterRealTime }

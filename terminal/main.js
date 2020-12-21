@@ -83,7 +83,7 @@ function addAirLine() {
     const wordCounter = document.createElement('div')
     wordCounter.classList.add('word-counter-air-line')
     wordCounter.id = 'word-counter-air-line'
-    wordCounter.textContent = '%80 5/190'
+    wordCounter.textContent = '0% 1/1'
 
     airLine.appendChild(mode)
     airLine.appendChild(branch)

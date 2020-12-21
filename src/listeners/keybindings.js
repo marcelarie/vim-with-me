@@ -1,10 +1,12 @@
-import {Folder} from "../model/folder.js";
-import {File} from "../model/file.js";
-import {mainFolder} from "../../terminal/mainFolder.js";
-import {textArea, terminalInput, lineNumber} from '../../terminal/main.js';
-import {modeManager, vimModes, saveFile, quit} from '../data/keybindingsFun.js';
-import {getLines} from '../data/normal.js'
-import {addNerdFiles, currentFileMark} from '../../terminal/nerdTree.js'
+import { Folder } from "../model/folder.js";
+import { File } from "../model/file.js";
+import { mainFolder } from "../../terminal/mainFolder.js";
+import { textArea, terminalInput, lineNumber } from '../../terminal/main.js';
+import { modeManager, vimModes, saveFile, quit } from '../data/keybindingsFun.js';
+import { getLines } from '../data/normal.js'
+import { addNerdFiles, currentFileMark } from '../../terminal/nerdTree.js'
+import { showLanguage, showWordCounterTotal, showWordCounterRealTime } from "../../terminal/airline.js";
+import { getCaretPosition } from '../data/caret.js'
 
 
 // Add event listener to terminal input
@@ -60,6 +62,10 @@ document.addEventListener('keydown', insertMode);
 // listener on every input of textArea
 textArea.addEventListener('input', () => {
     lineNumber(getLines(textArea));
+})
+
+textArea.addEventListener('keydown', e => {
+    showWordCounterRealTime(showWordCounterTotal(textArea), getCaretPosition(e))
 })
 
 
