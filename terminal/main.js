@@ -1,9 +1,9 @@
 
-import {Folder} from "../src/model/folder.js"
-import {File} from "../src/model/file.js"
-import {mainFolder} from "../terminal/mainFolder.js"
-import {getLines} from '../src/data/normal.js';
-import {showFilePath} from '../terminal/airline.js'
+import { Folder } from "../src/model/folder.js"
+import { File } from "../src/model/file.js"
+import { mainFolder } from "../terminal/mainFolder.js"
+import { getLines } from '../src/data/normal.js';
+import { showFilePath } from '../terminal/airline.js'
 
 // HTML
 export const container = document.getElementById('container')
@@ -18,8 +18,7 @@ function addTextArea() {
     //text area
     textArea.classList.add('text-area')
     textArea.setAttribute('contentEditable', true)
-    textArea.setAttribute('spellcheck', false)
-    //left numbers
+    textArea.setAttribute('spellcheck', false) //left numbers
     numberCol.classList.add('number-column')
     //nerd tree
     nerdTree.classList.add('nerd-tree', 'none')
@@ -78,7 +77,7 @@ function addAirLine() {
     const language = document.createElement('div')
     language.classList.add('language-air-line')
     language.id = 'language-air-line'
-    language.textContent = 'javascript'
+    language.textContent = '-'
 
     //line/word counter
     const wordCounter = document.createElement('div')
@@ -98,6 +97,6 @@ showFilePath(Object.keys(mainFolder), '');
 
 
 
-export {lineNumber}
+export { lineNumber }
 
 

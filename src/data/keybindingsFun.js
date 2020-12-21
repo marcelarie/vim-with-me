@@ -71,6 +71,10 @@ function saveFile(fileNames) {
     };
     terminalInput.innerText = '';
     terminalInput.classList.toggle('hide')
+    // show last file insitu
+    let lastFile = Object.keys(mainFolder.files)
+    showFilePath(Object.keys(mainFolder), lastFile[lastFile.length - 1])
+    showLanguage(lastFile[lastFile.length - 1])
 };
 
 // quit with :q

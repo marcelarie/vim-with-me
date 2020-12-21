@@ -33,13 +33,18 @@ function showLanguage(file) {
     const language = document.getElementById('language-air-line')
     const splitted = file.split('.')
     const fileType = splitted[splitted.length - 1]
-    switch (fileType) {
-        case 'js':
-            language.textContent = 'javascript'
-            break;
-        default:
-            language.textContent = fileType;
-    };
+    if (splitted.length > 1) {
+        switch (fileType) {
+            case 'js':
+                language.textContent = 'javascript'
+                break;
+            default:
+                language.textContent = fileType;
+        };
+    } else {
+        language.textContent = `-`
+    }
+    return fileType
 }
 
 export { showVimMode, showFilePath, showLanguage }
