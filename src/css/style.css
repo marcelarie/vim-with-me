@@ -9,6 +9,7 @@
     --gruvbox-purple: #b16286;
     --gruvbox-aqua: #689d6a;
     --gruvbox-gray: #a89984;
+    --gruvbox-orange: #fe8019;
     --gruvbox-light-red : #fb4934;
     --gruvbox-light-green : #b8bb26;
     --gruvbox-light-yellow : #fabd2f;
@@ -17,6 +18,9 @@
     --gruvbox-light-aqua: #8ec07c;
     --gruvbox-fg: #ebdbb2;
     --gruvbox-grey-comment: #928374;
+    --gruvbox-grey-dark: #504945;
+    --gruvbox-grey-darker: #3C3836;
+
 }
 
 * {
@@ -71,7 +75,6 @@ body {
 /*terminal-input*/
 .terminal-input {
     position: absolute;
-    border-top: 1px solid var(--gruvbox-gray);
     background-color: var(--gruvbox-background);
     font-size: 1.5em;
     font-family: 'Fira Code', monospace;
@@ -123,6 +126,67 @@ body {
     flex-direction: row;
 }
 
+/*air-line*/
+.air-line {
+    width: 100vw;
+    position: absolute;
+    bottom: 3em;
+    display: flex;
+    flex-direction: row;
+    height: 1.75em
+}
+
+.air-line div {
+    font-family: 'Fira Code', monospace;
+}
+
+.mode-air-line {
+    background-color: var(--gruvbox-grey-comment);
+    color: var(--gruvbox-background);
+    font-weight: bold;
+    padding: 0 0.5em;
+    font-size: 1.35em;
+    display: flex;
+    align-items: center;
+}
+
+.branch-air-line {
+    background-color: var(--gruvbox-grey-dark);
+    color: var(--gruvbox-gray);
+    font-size: 1.15em;
+    padding: 0 0.5em;
+    display: flex;
+    align-items: center;
+}
+
+.folder-air-line {
+    background-color: var(--gruvbox-grey-darker);
+    color: var( --gruvbox-light-blue);
+    font-size: 1.20em;
+    padding: 0 0.5em;
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.language-air-line {
+    background-color: var(--gruvbox-grey-dark);
+    color: var(--gruvbox-gray);
+    font-size: 1.15em;
+    padding: 0 0.5em;
+    display: flex;
+    align-items: center;
+}
+
+.word-counter-air-line {
+    background-color: var(--gruvbox-orange);
+    color: var(--gruvbox-background);
+    font-size: 1.15em;
+    padding: 0 0.5em;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
 
 
 /*hide&else classes*/

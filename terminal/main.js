@@ -1,8 +1,8 @@
 
-import {Folder} from "../src/model/folder.js"
-import {File} from "../src/model/file.js"
-import {mainFolder} from "../terminal/mainFolder.js"
-import {getLines} from '../src/data/normal.js';
+import { Folder } from "../src/model/folder.js"
+import { File } from "../src/model/file.js"
+import { mainFolder } from "../terminal/mainFolder.js"
+import { getLines } from '../src/data/normal.js';
 
 // HTML
 export const container = document.getElementById('container')
@@ -43,8 +43,6 @@ function addTerminalInput() {
 addTerminalInput();
 
 
-
-
 // Add line number column
 function lineNumber(items) {
     numberCol.innerHTML = ''
@@ -57,8 +55,42 @@ function lineNumber(items) {
 }
 
 
+function addAirLine() {
+    const airLine = document.createElement('div')
+    airLine.classList.add('air-line')
+    // modes
+    const mode = document.createElement('div')
+    mode.classList.add('mode-air-line')
+    mode.textContent = 'NORMAL'
+    // branch
+    const branch = document.createElement('div')
+    branch.classList.add('branch-air-line')
+    branch.textContent = 'ᚠ main'
+    // folder
+    const folder = document.createElement('div')
+    folder.classList.add('folder-air-line')
+    folder.textContent = 'file/index.html';
+    //language of file
+    const language = document.createElement('div')
+    language.classList.add('language-air-line')
+    language.textContent = 'javascript'
+
+    //line/word counter
+    const wordCounter = document.createElement('div')
+    wordCounter.classList.add('word-counter-air-line')
+    wordCounter.textContent = '%80 5/190'
+
+    airLine.appendChild(mode)
+    airLine.appendChild(branch)
+    airLine.appendChild(folder)
+    airLine.appendChild(language)
+    airLine.appendChild(wordCounter)
+    container.appendChild(airLine)
+}
+addAirLine();
 
 
-export {lineNumber}
+
+export { lineNumber }
 
 
