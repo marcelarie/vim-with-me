@@ -182,6 +182,7 @@ const normalMode = e => {
                             //           v      temporal       v
                             showFilePath(Object.keys(mainFolder), selectedFile)
                             showLanguage(selectedFile)
+                            textArea.focus();
                         }
                     })
                     break;

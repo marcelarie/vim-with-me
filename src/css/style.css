@@ -52,6 +52,7 @@ body {
     min-height: 100vh;
     overflow: hidden;
     padding: 10px;
+    white-space: pre;
 }
 .number-column {
     background-color: var(--gruvbox-background);
