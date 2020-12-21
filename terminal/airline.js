@@ -53,7 +53,13 @@ function showWordCounterTotal(element) {
 
 function showWordCounterRealTime(total, input) {
     const wordCounter = document.getElementById('word-counter-air-line')
-    const percentage = '%';
+    let percentage = ''
+    if (total > 0 && input > 0) {
+        percentage = Math.round((input / total) * 100);
+    } else {
+        percentage = 0;
+    }
+    typeof percentage === NaN ? percentage = 0 : percentage;
     wordCounter.textContent = percentage + '%' + ' ' + input + '/' + total;
 }
 
