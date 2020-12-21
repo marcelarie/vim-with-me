@@ -10,12 +10,15 @@ function showVimMode(mode) {
     switch (mode) {
         case 'normal':
             modes.textContent = 'NORMAL';
+            modes.style.backgroundColor = 'var(--gruvbox-grey-comment)'
             break;
         case 'visual':
             modes.textContent = 'VISUAL';
+            modes.style.backgroundColor = 'var(--gruvbox-orange)'
             break;
         case 'insert':
             modes.textContent = 'INSERT';
+            modes.style.backgroundColor = 'var(--gruvbox-light-blue)'
             break;
     }
 }
