@@ -1,8 +1,9 @@
 
-import { Folder } from "../src/model/folder.js"
-import { File } from "../src/model/file.js"
-import { mainFolder } from "../terminal/mainFolder.js"
-import { getLines } from '../src/data/normal.js';
+import {Folder} from "../src/model/folder.js"
+import {File} from "../src/model/file.js"
+import {mainFolder} from "../terminal/mainFolder.js"
+import {getLines} from '../src/data/normal.js';
+import {showFilePath} from '../terminal/airline.js'
 
 // HTML
 export const container = document.getElementById('container')
@@ -93,9 +94,10 @@ function addAirLine() {
     container.appendChild(airLine)
 }
 addAirLine();
+showFilePath(Object.keys(mainFolder), '');
 
 
 
-export { lineNumber }
+export {lineNumber}
 
 
