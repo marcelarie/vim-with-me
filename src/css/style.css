@@ -23,6 +23,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 body {
@@ -32,6 +33,8 @@ body {
 
 
 /*terminal*/
+
+#container { position: relative;}
 .text-area {
     background-color: var(--gruvbox-background); 
     color: var(--gruvbox-fg);
