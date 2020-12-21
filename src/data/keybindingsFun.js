@@ -1,6 +1,6 @@
 import { lineNumber } from '../../terminal/main.js'
 import { mainFolder } from "../../terminal/mainFolder.js"
-import { textArea, terminalInput } from '../../terminal/main.js'
+import { textArea, terminalInput, numberCol } from '../../terminal/main.js'
 import { getCaretPosition, setCaretPosition, setSelectionRange, followCaret } from '../data/caret.js';
 import { deleteCharOnPosition, getLines } from '../data/normal.js';
 import { showVimMode, showFilePath, showLanguage, showWordCounterTotal, showWordCounterRealTime } from '../../terminal/airline.js'
@@ -106,7 +106,7 @@ const normalMode = e => {
     document.removeEventListener('keydown', insertMode)
     if (vimModes.normal === true && terminalInput.classList.contains('hide')) {
         // lineNumber(getLines(textArea))
-        const nerdTree = document.getElementById('nerd-tree')
+        const nerdTree = document.getElementById('nerd-tree-container')
         if (nerdTree.classList.contains('none')) {
             switch (e.key) {
                 case 'h':
@@ -171,6 +171,7 @@ const normalMode = e => {
                     break;
                 case 'Enter':
                     e.preventDefault();
+                    numberCol.classList.toggle('left-border-text-area')
                     fileList.forEach(file => {
                         if (file.classList.contains('file-on-focus')) {
                             const selectedFile = file.textContent

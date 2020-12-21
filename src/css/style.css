@@ -87,16 +87,19 @@ body {
 }
 
 /*nerd-tree*/
-.nerd-tree {
+#nerd-tree-container {
+    height: 100vh;
     background-color: var(--gruvbox-background);
-    min-width: 20%;
-    border-right: 5px solid var(--gruvbox-grey-comment);
+    min-width: 15em;
+}
+.nerd-tree {
     display: flex;
     flex-direction: column;
     padding-top: 2em;
+    position: fixed;
 }
 .file-on-tree {
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-family: 'Fira Code', monospace;
     color: var(--gruvbox-green);
     justify-content: center;
@@ -113,7 +116,7 @@ body {
 }
 
 .folders {
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-family: 'Fira Code', monospace;
     color: var(--gruvbox-grey-comment);
     margin-left: 1em;
@@ -197,4 +200,7 @@ body {
 ::selection {
   color: var(--gruvbox-background);
   background: var(--gruvbox-light-green);
+}
+.left-border-text-area {
+    border-left: var(--gruvbox-grey-dark) 5px solid;
 }

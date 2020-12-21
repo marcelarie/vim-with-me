@@ -1,7 +1,7 @@
 import { Folder } from "../model/folder.js";
 import { File } from "../model/file.js";
 import { mainFolder } from "../../terminal/mainFolder.js";
-import { textArea, terminalInput, lineNumber } from '../../terminal/main.js';
+import { textArea, terminalInput, lineNumber, numberCol } from '../../terminal/main.js';
 import { modeManager, vimModes, saveFile, quit } from '../data/keybindingsFun.js';
 import { getLines } from '../data/normal.js'
 import { addNerdFiles, currentFileMark } from '../../terminal/nerdTree.js'
@@ -73,8 +73,9 @@ textArea.addEventListener('keydown', e => {
 
 document.addEventListener('keydown', e => {
     if (e.key === 'N' && vimModes.normal === true && terminalInput.classList.contains('hide')) {
-        const nerdTree = document.getElementById('nerd-tree')
+        const nerdTree = document.getElementById('nerd-tree-container')
         nerdTree.classList.toggle('none')
+        numberCol.classList.toggle('left-border-text-area')
         nerdTree.focus();
         addNerdFiles();
         currentFileMark();
