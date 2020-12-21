@@ -3,28 +3,27 @@ import {mainFolder} from "../../terminal/mainFolder.js"
 import {textArea, terminalInput} from '../../terminal/main.js'
 import {getCaretPosition, setCaretPosition, setSelectionRange, followCaret} from '../data/caret.js';
 import {deleteCharOnPosition, getLines} from '../data/normal.js';
+import {showVimMode} from '../../terminal/airline.js'
 
 // vim modes
 const vimModes = {normal: true, insert: false, visual: false, }
 let counterNerdTree = 0;
 //Vim modes change 
 function modeManager(mode) {
+    showVimMode(mode);
     switch (mode) {
         case 'normal':
-            console.log('normal');
             normalMode();
             vimModes.normal = true;
             vimModes.visual = false;
             vimModes.insert = false;
             break;
         case 'visual':
-            console.log('visual');
             vimModes.visual = true;
             vimModes.insert = false;
             vimModes.normal = false;
             break;
         case 'insert':
-            console.log('insert');
             vimModes.insert = true;
             vimModes.normal = false;
             vimModes.visual = false;
