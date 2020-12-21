@@ -3,7 +3,7 @@ import { mainFolder } from "../../terminal/mainFolder.js"
 import { textArea, terminalInput } from '../../terminal/main.js'
 import { getCaretPosition, setCaretPosition, setSelectionRange, followCaret } from '../data/caret.js';
 import { deleteCharOnPosition, getLines } from '../data/normal.js';
-import { showVimMode, showFilePath } from '../../terminal/airline.js'
+import { showVimMode, showFilePath, showLanguage } from '../../terminal/airline.js'
 
 // vim modes
 const vimModes = { normal: true, insert: false, visual: false, }
@@ -176,6 +176,7 @@ const normalMode = e => {
                             lineNumber(getLines(textArea))
                             //           v      temporal       v
                             showFilePath(Object.keys(mainFolder), selectedFile)
+                            showLanguage(selectedFile)
                         }
                     })
                     break;

@@ -129,7 +129,7 @@ body {
 /*air-line*/
 .air-line {
     width: 100vw;
-    position: absolute;
+    position: fixed;
     bottom: 3em;
     display: flex;
     flex-direction: row;

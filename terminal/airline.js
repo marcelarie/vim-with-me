@@ -1,7 +1,4 @@
-import { mainFolder } from "../terminal/mainFolder.js"
 
-const branch = document.getElementById('branch-air-line')
-const language = document.getElementById('language-air-line')
 const wordCounter = document.getElementById('word-counter-air-line')
 
 function showVimMode(mode) {
@@ -22,7 +19,8 @@ function showVimMode(mode) {
     }
 }
 
-function showBranch(branch) {
+function showBranch(input) {
+    const branch = document.getElementById('branch-air-line')
     // IN PROCESS
 }
 
@@ -31,4 +29,17 @@ function showFilePath(father, file) {
     folder.textContent = father + '/' + file
 }
 
-export { showVimMode, showFilePath }
+function showLanguage(file) {
+    const language = document.getElementById('language-air-line')
+    const splitted = file.split('.')
+    const fileType = splitted[splitted.length - 1]
+    switch (fileType) {
+        case 'js':
+            language.textContent = 'javascript'
+            break;
+        default:
+            language.textContent = fileType;
+    };
+}
+
+export { showVimMode, showFilePath, showLanguage }
