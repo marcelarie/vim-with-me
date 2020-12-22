@@ -1,13 +1,13 @@
-import { lineNumber } from '../../terminal/main.js'
-import { mainFolder } from "../../terminal/mainFolder.js"
-import { textArea, terminalInput, numberCol } from '../../terminal/main.js'
-import { getCaretPosition, setCaretPosition, setSelectionRange, followCaret, caretPosition } from '../data/caret.js';
-import { deleteCharOnPosition, getLines } from '../data/normal.js';
-import { showVimMode, showFilePath, showLanguage, showWordCounterTotal, showWordCounterRealTime } from '../../terminal/airline.js'
-import { positionsToLine } from '../data/up-down-movements.js'
+import {lineNumber} from '../../terminal/main.js'
+import {mainFolder} from "../../terminal/mainFolder.js"
+import {textArea, terminalInput, numberCol} from '../../terminal/main.js'
+import {getCaretPosition, setCaretPosition, setSelectionRange, followCaret, caretPosition} from '../data/caret.js';
+import {deleteCharOnPosition, getLines} from '../data/normal.js';
+import {showVimMode, showFilePath, showLanguage, showWordCounterTotal, showWordCounterRealTime} from '../../terminal/airline.js'
+import {positionsToLine} from '../data/up-down-movements.js'
 
 // vim modes
-const vimModes = { normal: true, insert: false, visual: false, }
+const vimModes = {normal: true, insert: false, visual: false, }
 let counterNerdTree = 0;
 let clipboard = '';
 //Vim modes change 
@@ -71,7 +71,7 @@ function saveFile(fileNames) {
         })
         console.log(mainFolder)
     };
-    terminalInput.innerText = '';
+    terminalInput.value = '';
     terminalInput.classList.toggle('hide')
     // show last file insitu
     let lastFile = Object.keys(mainFolder.files)
@@ -86,7 +86,7 @@ function quit(arr) {
         window.close();
     } else if (arr.length <= 0 && textArea.value !== '') {
         alert('Save your file first with :w name-of-file');
-        terminalInput.innerText = '';
+        terminalInput.value = '';
         terminalInput.classList.toggle('hide')
     } else if (arr.length >= 1) {
         let fileNotify = false;
@@ -99,7 +99,7 @@ function quit(arr) {
         } else {
             alert('Save your progress with :w name-of-file.');
         }
-        terminalInput.innerText = '';
+        terminalInput.value = '';
         terminalInput.classList.toggle('hide')
     }
 }
@@ -234,4 +234,4 @@ document.addEventListener('keydown', insertMode)
 
 
 
-export { modeManager, vimModes, saveFile, quit }
+export {modeManager, vimModes, saveFile, quit}

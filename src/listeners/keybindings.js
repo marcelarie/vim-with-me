@@ -6,7 +6,7 @@ import { modeManager, vimModes, saveFile, quit } from '../data/keybindingsFun.js
 import { getLines } from '../data/normal.js'
 import { addNerdFiles, currentFileMark } from '../../terminal/nerdTree.js'
 import { showLanguage, showWordCounterTotal, showWordCounterRealTime } from "../../terminal/airline.js";
-import { getCaretPosition } from '../data/caret.js'
+import { getCaretPosition, setCaretPosition } from '../data/caret.js'
 
 
 // Add event listener to terminal input
@@ -14,10 +14,10 @@ terminalInput.addEventListener('keydown', e => {
     //for Enter
     if (e.key === 'Enter') {
         e.preventDefault();
-        if (terminalInput.innerText.includes(':w')) {
-            let fileNames = terminalInput.innerText.split(' ')
+        if (terminalInput.value.includes(':w')) {
+            let fileNames = terminalInput.value.split(' ')
             saveFile(fileNames);
-        } else if (terminalInput.innerText.includes(':q')) {
+        } else if (terminalInput.value.includes(':q')) {
             const mainFiles = Object.values(mainFolder.files)
             quit(mainFiles);
         }
@@ -28,7 +28,9 @@ terminalInput.addEventListener('keydown', e => {
 const showTerminal = e => {
     if (e.key === ':' && terminalInput.classList.contains('hide')) {
         terminalInput.classList.toggle('hide')
+        terminalInput.value = ':'
         terminalInput.focus();
+        terminalInput.selectionStart = terminalInput.selectionEnd = 1;
     };
 };
 document.addEventListener('keydown', showTerminal);
@@ -39,7 +41,7 @@ const escKey = e => {
         if (!terminalInput.classList.contains('hide')) {
             terminalInput.classList.toggle('hide')
             document.activeElement.blur();
-            terminalInput.innerText = '';
+            terminalInput.value = '';
         } else if (vimModes.insert === true) {
             modeManager('normal');
         } else if (vimModes.visual === true) {

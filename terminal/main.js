@@ -9,7 +9,7 @@ import {showFilePath} from '../terminal/airline.js'
 export const container = document.getElementById('container')
 export const textArea = document.createElement('textarea')
 export const numberCol = document.createElement('div')
-export const terminalInput = document.createElement('div')
+export const terminalInput = document.createElement('textarea')
 export const nerdTree = document.createElement('div')
 const nerdTreeContainer = document.createElement('div')
 
