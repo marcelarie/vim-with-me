@@ -55,7 +55,6 @@ body {
     white-space: pre;
 }
 .number-column {
-    background-color: var(--gruvbox-background);
     color: var(--gruvbox-grey-comment);
     font-size: 1.4em;
     font-family: 'Fira Code', monospace;
@@ -68,6 +67,7 @@ body {
     line-height: 1.2em;
     border: 1px solid transparent;
     text-align: right;
+    background-color: var(--gruvbox-background);
 }
 .last-number-left {
     color: var(--gruvbox-yellow);
@@ -132,6 +132,18 @@ body {
 .display-flex {
     display: flex;
     flex-direction: row;
+}
+
+/*special-characters*/
+.special-characters {
+    writing-mode:tb;
+    text-orientation: upright;
+    position: absolute;
+    z-index: -1;
+    color: var(--gruvbox-grey-comment);
+    padding: 3px;
+    font-size: 1.4em;
+    font-family: 'Fira Code', monospace;
 }
 
 /*air-line*/

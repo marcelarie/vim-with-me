@@ -12,6 +12,8 @@ export const numberCol = document.createElement('div')
 export const terminalInput = document.createElement('textarea')
 export const nerdTree = document.createElement('div')
 const nerdTreeContainer = document.createElement('div')
+const specialCharacters = document.createElement('div')
+
 
 // Creating the text area.
 function addTextArea() {
@@ -21,6 +23,8 @@ function addTextArea() {
     textArea.setAttribute('contentEditable', true)
     textArea.setAttribute('spellcheck', false) //left numbers
     numberCol.classList.add('number-column')
+    specialCharacters.classList.add('special-characters')
+    specialCharacters.textContent = `~~~~~~~~~~~~`
     //nerd tree
     nerdTree.classList.add('nerd-tree')
     nerdTreeContainer.classList.add('none')
@@ -29,6 +33,7 @@ function addTextArea() {
 
     nerdTreeContainer.appendChild(nerdTree)
     container.appendChild(nerdTreeContainer);
+    container.appendChild(specialCharacters);
     container.appendChild(numberCol);
     container.appendChild(textArea);
     textArea.classList.add('greenCaret')
