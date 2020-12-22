@@ -2,7 +2,7 @@ import { Folder } from "../model/folder.js";
 import { File } from "../model/file.js";
 import { mainFolder } from "../../terminal/mainFolder.js";
 import { textArea, terminalInput, lineNumber, numberCol } from '../../terminal/main.js';
-import { modeManager, vimModes, saveFile, quit } from '../data/keybindingsFun.js';
+import { modeManager, vimModes, saveFile, quit, substitutePattern } from '../data/keybindingsFun.js';
 import { getLines } from '../data/normal.js'
 import { addNerdFiles, currentFileMark } from '../../terminal/nerdTree.js'
 import { showLanguage, showWordCounterTotal, showWordCounterRealTime } from "../../terminal/airline.js";
@@ -20,6 +20,8 @@ terminalInput.addEventListener('keydown', e => {
         } else if (terminalInput.value.includes(':q')) {
             const mainFiles = Object.values(mainFolder.files)
             quit(mainFiles);
+        } else if (terminalInput.value.startsWith(':%s/')) {
+            substitutePattern(terminalInput.value)
         }
     }
 })

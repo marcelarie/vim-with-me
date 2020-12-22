@@ -104,6 +104,17 @@ function quit(arr) {
     }
 }
 
+function substitutePattern(pattern) {
+    const splitted = pattern.split('/')
+    const currentWord = splitted[1]
+    const substituteWord = splitted[2]
+
+    textArea.value = textArea.value.replaceAll(currentWord, substituteWord)
+
+    terminalInput.value = '';
+    terminalInput.classList.toggle('hide')
+}
+
 
 const normalMode = e => {
     document.removeEventListener('keydown', insertMode)
@@ -234,4 +245,4 @@ document.addEventListener('keydown', insertMode)
 
 
 
-export {modeManager, vimModes, saveFile, quit}
+export {modeManager, vimModes, saveFile, quit, substitutePattern}
