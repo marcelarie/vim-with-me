@@ -1,14 +1,15 @@
-import {lineNumber} from '../../terminal/main.js'
-import {mainFolder} from "../../terminal/mainFolder.js"
-import {textArea, terminalInput, numberCol} from '../../terminal/main.js'
-import {getCaretPosition, setCaretPosition, setSelectionRange, followCaret, caretPosition} from '../data/caret.js';
-import {deleteCharOnPosition, getLines} from '../data/normal.js';
-import {showVimMode, showFilePath, showLanguage, showWordCounterTotal, showWordCounterRealTime} from '../../terminal/airline.js'
-import {positionsToLine} from '../data/up-down-movements.js'
+import { lineNumber } from '../../terminal/main.js'
+import { mainFolder } from "../../terminal/mainFolder.js"
+import { textArea, terminalInput, numberCol } from '../../terminal/main.js'
+import { getCaretPosition, setCaretPosition, setSelectionRange, followCaret, caretPosition } from '../data/caret.js';
+import { deleteCharOnPosition, getLines } from '../data/normal.js';
+import { showVimMode, showFilePath, showLanguage, showWordCounterTotal, showWordCounterRealTime } from '../../terminal/airline.js'
+import { positionsToLine } from '../data/up-down-movements.js'
 
 // vim modes
-const vimModes = {normal: true, insert: false, visual: false, }
+const vimModes = { normal: true, insert: false, visual: false, }
 let counterNerdTree = 0;
+let clipboard = '';
 //Vim modes change 
 function modeManager(mode) {
     showVimMode(mode);
@@ -105,6 +106,8 @@ function quit(arr) {
 
 const normalMode = e => {
     document.removeEventListener('keydown', insertMode)
+    const currentLine = positionsToLine(textArea.value, caretPosition);
+    const linesText = getLines(textArea)
     if (vimModes.normal === true && terminalInput.classList.contains('hide')) {
         const nerdTree = document.getElementById('nerd-tree-container')
         if (nerdTree.classList.contains('none')) {
@@ -140,21 +143,29 @@ const normalMode = e => {
                     e.preventDefault();
                     document.addEventListener('keydown', e => {
                         if (e.key === 'y') {
-                            const currentLine = positionsToLine(textArea.value, caretPosition);
-                            const linesText = getLines(textArea)
-                            console.log(linesText[currentLine])
+                            clipboard = ''
+                            clipboard = linesText[currentLine]
                         }
                     })
                     break;
                 case 'D':
                     e.preventDefault();
                     let oldCaretPosD = getCaretPosition(e)
-                    const currentLine = positionsToLine(textArea.value, caretPosition);
-                    const linesText = getLines(textArea)
                     linesText[currentLine] = ''
                     const joined = linesText.join('\n')
                     textArea.value = joined
                     setCaretPosition(textArea, oldCaretPosD)
+                    break;
+                case 'p':
+                    e.preventDefault();
+                    let oldCaretPosP = getCaretPosition(e)
+                    if (clipboard !== '') {
+                        const arrayLines = Object.values(linesText)
+                        arrayLines.splice(currentLine, 0, clipboard)
+                        textArea.value = arrayLines.join('\n')
+                    }
+                    setCaretPosition(textArea, oldCaretPosP)
+                    lineNumber(getLines(textArea));
                     break;
                 case 'ArrowUp':
                 case 'ArrowLeft':
@@ -222,4 +233,4 @@ document.addEventListener('keydown', insertMode)
 
 
 
-export {modeManager, vimModes, saveFile, quit}
+export { modeManager, vimModes, saveFile, quit }
