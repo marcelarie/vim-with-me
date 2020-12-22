@@ -52,31 +52,49 @@ function currentFile(currentFileId) {
 // save with :w
 function saveFile(fileNames) {
     fileNames.shift();
+    let correct = true;
     let mainFiles = Object.keys(mainFolder.files)
     if (fileNames.length <= 0) {
         if (mainFiles.length > 0) {
-            mainFolder.files[currentFile(currentFileId)].content = textArea.value;
+            if (textArea.value) {
+                mainFolder.files[currentFile(currentFileId)].content = textArea.value;
+            } else {
+                textArea.value = '\n'
+                mainFolder.files[currentFile(currentFileId)].content = textArea.value;
+            }
             console.log(mainFolder)
+            terminalInput.value = '';
+            terminalInput.classList.toggle('hide')
+
         } else {
-            alert('Please add a name to the file with :w name-of-file.');
+            terminalInput.value = 'Please add a name to the file.'
+            correct = false;
         }
     } else {
         fileNames.forEach(name => {
             if (!mainFiles.includes(name)) {
-                mainFolder.createFile(name, textArea.value);
-                currentFileId = mainFolder.files[name].id
+                if (name.length <= 0) {
+                    terminalInput.value = 'Please add a name to the file.'
+                    correct = false;
+                } else {
+                    mainFolder.createFile(name, textArea.value);
+                    currentFileId = mainFolder.files[name].id
+                    terminalInput.value = '';
+                    terminalInput.classList.toggle('hide')
+                }
             } else {
-                alert('Filename already exists.')
+                terminalInput.value = 'Filename already exists.'
+                correct = false;
             };
         })
         console.log(mainFolder)
     };
-    terminalInput.value = '';
-    terminalInput.classList.toggle('hide')
     // show last file insitu
-    let lastFile = Object.keys(mainFolder.files)
-    showFilePath(Object.keys(mainFolder), lastFile[lastFile.length - 1])
-    showLanguage(lastFile[lastFile.length - 1])
+    if (correct === true) {
+        let lastFile = Object.keys(mainFolder.files)
+        showFilePath(Object.keys(mainFolder), lastFile[lastFile.length - 1])
+        showLanguage(lastFile[lastFile.length - 1])
+    }
     localStorage.setItem('files', JSON.stringify(mainFolder.files))
 };
 
@@ -209,7 +227,7 @@ const normalMode = e => {
                     break;
                 case 'Enter':
                     e.preventDefault();
-                    if (numberCol.classList.contains('none')) {
+                    if (nerdTree.classList.contains('none')) {
                         numberCol.classList.toggle('left-border-text-area')
                     }
                     fileList.forEach(file => {
@@ -219,11 +237,27 @@ const normalMode = e => {
                             textArea.value = mainFiles[selectedFile].content
                             nerdTree.classList.toggle('none')
                             lineNumber(getLines(textArea))
-                            //           v      temporal       v
+                            //          v      temporary       v
                             showFilePath(Object.keys(mainFolder), selectedFile)
                             showLanguage(selectedFile)
                             textArea.focus();
+                            numberCol.classList.toggle('left-border-text-area')
                         }
+                    })
+                    break;
+                case 'D':
+                    e.preventDefault();
+                    fileList.forEach(file => {
+                        if (file.classList.contains('file-on-focus')) {
+                            const selectedFile = file.textContent
+                            delete mainFiles[selectedFile]
+                        }
+                        nerdTree.classList.add('none')
+                        if (nerdTree.classList.contains('none')) {
+                            numberCol.classList.toggle('left-border-text-area')
+                        }
+                        // saving progress on localStorage.
+                        localStorage.setItem('files', JSON.stringify(mainFolder.files))
                     })
                     break;
                 default:

@@ -1,5 +1,5 @@
-import { mainFolder } from "../terminal/mainFolder.js"
-import { currentFileId } from '../src/data/keybindingsFun.js'
+import {mainFolder} from "../terminal/mainFolder.js"
+import {currentFileId} from '../src/data/keybindingsFun.js'
 
 function addNerdFiles() {
     const nerdTree = document.getElementById('nerd-tree')
@@ -27,4 +27,8 @@ function currentFileMark() {
     })
 }
 
-export { addNerdFiles, currentFileMark }
+function deleteFile(file) {
+
+}
+
+export {addNerdFiles, currentFileMark}

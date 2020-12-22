@@ -7,10 +7,9 @@ export const mainFolder = new Folder()
 if (localStorage.getItem('files') !== null) {
     const storage = localStorage.getItem('files');
     mainFolder.files = JSON.parse(storage)
-}
-
-mainFolder.createFile('index.html',
-    `<!DOCTYPE html>
+} else {
+    mainFolder.createFile('index.html',
+        `<!DOCTYPE html>
     < html lang = "en" >
     <head>
         <meta charset="UTF-8">
@@ -20,8 +19,8 @@ mainFolder.createFile('index.html',
 
         </body>
     </html> `)
-mainFolder.createFile('style.css',
-    `
+    mainFolder.createFile('style.css',
+        `
 :root {
     /*gruvbox*/
     --gruvbox-background: #282828;
@@ -57,8 +56,8 @@ mainFolder.createFile('style.css',
 body {
     background-color: var(--gruvbox-background); 
 } `)
-mainFolder.createFile('main.js',
-    `
+    mainFolder.createFile('main.js',
+        `
 import {File} from "./file.js"
 
 class Folder {
@@ -73,5 +72,6 @@ class Folder {
 
 export {Folder} `)
 
+}
 
 console.log(mainFolder)

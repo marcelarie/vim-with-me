@@ -1,12 +1,12 @@
-import { Folder } from "../model/folder.js";
-import { File } from "../model/file.js";
-import { mainFolder } from "../../terminal/mainFolder.js";
-import { textArea, terminalInput, lineNumber, numberCol } from '../../terminal/main.js';
-import { modeManager, vimModes, saveFile, quit, substitutePattern } from '../data/keybindingsFun.js';
-import { getLines } from '../data/normal.js'
-import { addNerdFiles, currentFileMark } from '../../terminal/nerdTree.js'
-import { showLanguage, showWordCounterTotal, showWordCounterRealTime } from "../../terminal/airline.js";
-import { getCaretPosition, setCaretPosition } from '../data/caret.js'
+import {Folder} from "../model/folder.js";
+import {File} from "../model/file.js";
+import {mainFolder} from "../../terminal/mainFolder.js";
+import {textArea, terminalInput, lineNumber, numberCol} from '../../terminal/main.js';
+import {modeManager, vimModes, saveFile, quit, substitutePattern} from '../data/keybindingsFun.js';
+import {getLines} from '../data/normal.js'
+import {addNerdFiles, currentFileMark} from '../../terminal/nerdTree.js'
+import {showLanguage, showWordCounterTotal, showWordCounterRealTime} from "../../terminal/airline.js";
+import {getCaretPosition, setCaretPosition} from '../data/caret.js'
 
 
 // Add event listener to terminal input
@@ -24,6 +24,8 @@ terminalInput.addEventListener('keydown', e => {
             substitutePattern(terminalInput.value)
         } else if (terminalInput.value.includes('command not found')) {
             terminalInput.value = ":"
+        } else if (terminalInput.value.includes('Filename already exists.') || terminalInput.value.includes('Please add a name to the file.')) {
+            terminalInput.value = ":w "
         } else {
             terminalInput.value = "command not found"
         }
