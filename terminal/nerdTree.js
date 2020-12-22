@@ -27,8 +27,16 @@ function currentFileMark() {
     })
 }
 
-function deleteFile(file) {
-
+function deleteFile(fileList, folder) {
+    fileList.forEach(file => {
+        if (file.classList.contains('file-on-focus')) {
+            const selectedFile = file.textContent
+            delete folder[selectedFile]
+        }
+        addNerdFiles();
+        // saving progress on localStorage.
+        localStorage.setItem('files', JSON.stringify(mainFolder.files))
+    })
 }
 
-export {addNerdFiles, currentFileMark}
+export {addNerdFiles, currentFileMark, deleteFile}

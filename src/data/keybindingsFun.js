@@ -5,6 +5,7 @@ import {getCaretPosition, setCaretPosition, setSelectionRange, followCaret, care
 import {deleteCharOnPosition, getLines} from '../data/normal.js';
 import {showVimMode, showFilePath, showLanguage, showWordCounterTotal, showWordCounterRealTime} from '../../terminal/airline.js'
 import {positionsToLine} from '../data/up-down-movements.js'
+import {deleteFile} from '../../terminal/nerdTree.js'
 
 // vim modes
 const vimModes = {normal: true, insert: false, visual: false, }
@@ -247,18 +248,8 @@ const normalMode = e => {
                     break;
                 case 'D':
                     e.preventDefault();
-                    fileList.forEach(file => {
-                        if (file.classList.contains('file-on-focus')) {
-                            const selectedFile = file.textContent
-                            delete mainFiles[selectedFile]
-                        }
-                        nerdTree.classList.add('none')
-                        if (nerdTree.classList.contains('none')) {
-                            numberCol.classList.toggle('left-border-text-area')
-                        }
-                        // saving progress on localStorage.
-                        localStorage.setItem('files', JSON.stringify(mainFolder.files))
-                    })
+                    deleteFile(fileList, mainFiles)
+                    nerdTree.focus();
                     break;
                 default:
                     e.preventDefault();
