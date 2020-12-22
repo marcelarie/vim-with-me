@@ -77,6 +77,7 @@ function saveFile(fileNames) {
     let lastFile = Object.keys(mainFolder.files)
     showFilePath(Object.keys(mainFolder), lastFile[lastFile.length - 1])
     showLanguage(lastFile[lastFile.length - 1])
+    localStorage.setItem('files', JSON.stringify(mainFolder.files))
 };
 
 // quit with :q

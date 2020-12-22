@@ -4,6 +4,11 @@ import {File} from "../src/model/file.js"
 
 export const mainFolder = new Folder()
 
+if (localStorage.getItem('files') !== null) {
+    const storage = localStorage.getItem('files');
+    mainFolder.files = JSON.parse(storage)
+}
+
 mainFolder.createFile('index.html',
     `<!DOCTYPE html>
     < html lang = "en" >
