@@ -42,7 +42,6 @@ const escKey = e => {
             terminalInput.innerText = '';
         } else if (vimModes.insert === true) {
             modeManager('normal');
-            textArea.classList.add('greenCaret')
         } else if (vimModes.visual === true) {
             modeManager('normal');
         };

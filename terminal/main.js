@@ -1,9 +1,9 @@
 
-import { Folder } from "../src/model/folder.js"
-import { File } from "../src/model/file.js"
-import { mainFolder } from "../terminal/mainFolder.js"
-import { getLines } from '../src/data/normal.js';
-import { showFilePath } from '../terminal/airline.js'
+import {Folder} from "../src/model/folder.js"
+import {File} from "../src/model/file.js"
+import {mainFolder} from "../terminal/mainFolder.js"
+import {getLines} from '../src/data/normal.js';
+import {showFilePath} from '../terminal/airline.js'
 
 // HTML
 export const container = document.getElementById('container')
@@ -31,6 +31,7 @@ function addTextArea() {
     container.appendChild(nerdTreeContainer);
     container.appendChild(numberCol);
     container.appendChild(textArea);
+    textArea.classList.add('greenCaret')
     lineNumber(getLines(textArea));
 }
 addTextArea();
@@ -101,6 +102,6 @@ showFilePath(Object.keys(mainFolder), '');
 
 
 
-export { lineNumber }
+export {lineNumber}
 
 

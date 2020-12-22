@@ -1,12 +1,13 @@
-import { lineNumber } from '../../terminal/main.js'
-import { mainFolder } from "../../terminal/mainFolder.js"
-import { textArea, terminalInput, numberCol } from '../../terminal/main.js'
-import { getCaretPosition, setCaretPosition, setSelectionRange, followCaret } from '../data/caret.js';
-import { deleteCharOnPosition, getLines } from '../data/normal.js';
-import { showVimMode, showFilePath, showLanguage, showWordCounterTotal, showWordCounterRealTime } from '../../terminal/airline.js'
+import {lineNumber} from '../../terminal/main.js'
+import {mainFolder} from "../../terminal/mainFolder.js"
+import {textArea, terminalInput, numberCol} from '../../terminal/main.js'
+import {getCaretPosition, setCaretPosition, setSelectionRange, followCaret, caretPosition} from '../data/caret.js';
+import {deleteCharOnPosition, getLines} from '../data/normal.js';
+import {showVimMode, showFilePath, showLanguage, showWordCounterTotal, showWordCounterRealTime} from '../../terminal/airline.js'
+import {positionsToLine} from '../data/up-down-movements.js'
 
 // vim modes
-const vimModes = { normal: true, insert: false, visual: false, }
+const vimModes = {normal: true, insert: false, visual: false, }
 let counterNerdTree = 0;
 //Vim modes change 
 function modeManager(mode) {
@@ -105,7 +106,6 @@ function quit(arr) {
 const normalMode = e => {
     document.removeEventListener('keydown', insertMode)
     if (vimModes.normal === true && terminalInput.classList.contains('hide')) {
-        // lineNumber(getLines(textArea))
         const nerdTree = document.getElementById('nerd-tree-container')
         if (nerdTree.classList.contains('none')) {
             switch (e.key) {
@@ -136,10 +136,25 @@ const normalMode = e => {
                     setCaretPosition(textArea, oldCaretPos)
                     followCaret(textArea, getCaretPosition(e), 'x');
                     break;
-                case 'v':
+                case 'y':
                     e.preventDefault();
-                    let visualCaretPos = getCaretPosition(e)
-                    //visualMode();
+                    document.addEventListener('keydown', e => {
+                        if (e.key === 'y') {
+                            const currentLine = positionsToLine(textArea.value, caretPosition);
+                            const linesText = getLines(textArea)
+                            console.log(linesText[currentLine])
+                        }
+                    })
+                    break;
+                case 'D':
+                    e.preventDefault();
+                    let oldCaretPosD = getCaretPosition(e)
+                    const currentLine = positionsToLine(textArea.value, caretPosition);
+                    const linesText = getLines(textArea)
+                    linesText[currentLine] = ''
+                    const joined = linesText.join('\n')
+                    textArea.value = joined
+                    setCaretPosition(textArea, oldCaretPosD)
                     break;
                 case 'ArrowUp':
                 case 'ArrowLeft':
@@ -195,7 +210,6 @@ const normalMode = e => {
 document.addEventListener('keydown', normalMode)
 
 const insertMode = e => {
-    textArea.classList.remove('greenCaret')
     if (vimModes.insert === true) {
         switch (e.key) {
             case 'Escape':
@@ -208,4 +222,4 @@ document.addEventListener('keydown', insertMode)
 
 
 
-export { modeManager, vimModes, saveFile, quit }
+export {modeManager, vimModes, saveFile, quit}

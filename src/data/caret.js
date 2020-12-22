@@ -1,7 +1,7 @@
-import { positionsToLine, extractPosition } from "../data/visual.js"
-import { textArea } from "../../terminal/main.js"
+import {positionsToLine, extractPosition} from "../data/up-down-movements.js"
+import {textArea} from "../../terminal/main.js"
 
-let caretPosition = ''
+export let caretPosition = ''
 function getCaretPosition(e) {
     caretPosition = e.target.selectionStart;
     return e.target.selectionStart;
@@ -41,4 +41,4 @@ function setSelectionRange(element, position) {
 
 
 
-export { getCaretPosition, setCaretPosition, setSelectionRange, followCaret };
+export {getCaretPosition, setCaretPosition, setSelectionRange, followCaret};

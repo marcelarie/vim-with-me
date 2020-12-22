@@ -6,7 +6,7 @@ function deleteCharOnPosition(element, position) {
     }
 }
 
-function getLines(element, position) {
+function getLines(element) {
     let text = element.value.split('\n');
     return text
 }
