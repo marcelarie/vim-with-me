@@ -22,6 +22,10 @@ terminalInput.addEventListener('keydown', e => {
             quit(mainFiles);
         } else if (terminalInput.value.startsWith(':%s/')) {
             substitutePattern(terminalInput.value)
+        } else if (terminalInput.value.includes('command not found')) {
+            terminalInput.value = ":"
+        } else {
+            terminalInput.value = "command not found"
         }
     }
 })

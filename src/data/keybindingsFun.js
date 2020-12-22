@@ -209,7 +209,9 @@ const normalMode = e => {
                     break;
                 case 'Enter':
                     e.preventDefault();
-                    numberCol.classList.toggle('left-border-text-area')
+                    if (numberCol.classList.contains('none')) {
+                        numberCol.classList.toggle('left-border-text-area')
+                    }
                     fileList.forEach(file => {
                         if (file.classList.contains('file-on-focus')) {
                             const selectedFile = file.textContent
