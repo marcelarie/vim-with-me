@@ -1,5 +1,5 @@
-import {positionsToLine} from "../data/visual.js"
-import {textArea} from "../../terminal/main.js"
+import { positionsToLine, extractPosition } from "../data/visual.js"
+import { textArea } from "../../terminal/main.js"
 
 let caretPosition = ''
 function getCaretPosition(e) {
@@ -8,16 +8,18 @@ function getCaretPosition(e) {
 };
 
 function followCaret(element, position, key) {
+    const currentLine = positionsToLine(textArea.value, caretPosition);
     switch (key) {
         case 'h':
             element.setSelectionRange(position - 1, position)
-            console.log(positionsToLine(textArea.value, 'up', caretPosition));
             break;
         case 'j':
-            element.setSelectionRange(position + 91, position + 91 + 1)
+            const charactersToPositionDown = extractPosition(textArea, currentLine, caretPosition, 'down')
+            element.setSelectionRange(position + charactersToPositionDown, position + charactersToPositionDown + 1)
             break;
         case 'k':
-            element.setSelectionRange(position - 91, position - 91 + 1)
+            const charactersToPositionUp = extractPosition(textArea, currentLine, caretPosition, 'up')
+            element.setSelectionRange(position - charactersToPositionUp - 1, position - charactersToPositionUp)
             break;
         case 'l':
             element.setSelectionRange(position + 1, position + 2)
@@ -39,4 +41,4 @@ function setSelectionRange(element, position) {
 
 
 
-export {getCaretPosition, setCaretPosition, setSelectionRange, followCaret};
+export { getCaretPosition, setCaretPosition, setSelectionRange, followCaret };
