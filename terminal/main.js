@@ -13,6 +13,7 @@ export const terminalInput = document.createElement('textarea')
 export const nerdTree = document.createElement('div')
 const nerdTreeContainer = document.createElement('div')
 const specialCharacters = document.createElement('div')
+const inputFile = document.createElement('input')
 
 
 // Creating the text area.
@@ -30,7 +31,13 @@ function addTextArea() {
     nerdTreeContainer.classList.add('none')
     nerdTree.id = 'nerd-tree'
     nerdTreeContainer.id = 'nerd-tree-container'
+    // input 
+    inputFile.setAttribute('type', 'file')
+    inputFile.classList.add('input-file')
+    inputFile.id = 'input-file'
 
+
+    nerdTreeContainer.appendChild(inputFile)
     nerdTreeContainer.appendChild(nerdTree)
     container.appendChild(nerdTreeContainer);
     container.appendChild(specialCharacters);

@@ -1,5 +1,6 @@
 import {mainFolder} from "../terminal/mainFolder.js"
 import {currentFileId} from '../src/data/keybindingsFun.js'
+import {textArea} from '../terminal/main.js'
 
 function addNerdFiles() {
     const nerdTree = document.getElementById('nerd-tree')
@@ -39,4 +40,27 @@ function deleteFile(fileList, folder) {
     })
 }
 
-export {addNerdFiles, currentFileMark, deleteFile}
+
+function uploadFile(event) {
+    const input = event.target
+    if ('files' in input && input.files.length > 0) {
+        placeFileContent(textArea, input.files[0])
+    }
+}
+
+function placeFileContent(target, file) {
+    readFileContent(file).then(content => {
+        target.value = content
+    }).catch(error => console.log(error))
+}
+
+function readFileContent(file) {
+    const reader = new FileReader()
+    return new Promise((resolve, reject) => {
+        reader.onload = event => resolve(event.target.result)
+        reader.onerror = error => reject(error)
+        reader.readAsText(file)
+    })
+}
+
+export {addNerdFiles, currentFileMark, deleteFile, uploadFile}

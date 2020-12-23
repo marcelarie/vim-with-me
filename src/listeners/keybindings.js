@@ -4,7 +4,7 @@ import {mainFolder} from "../../terminal/mainFolder.js";
 import {textArea, terminalInput, lineNumber, numberCol} from '../../terminal/main.js';
 import {modeManager, vimModes, saveFile, quit, substitutePattern} from '../data/keybindingsFun.js';
 import {getLines} from '../data/normal.js'
-import {addNerdFiles, currentFileMark} from '../../terminal/nerdTree.js'
+import {addNerdFiles, currentFileMark, uploadFile} from '../../terminal/nerdTree.js'
 import {showLanguage, showWordCounterTotal, showWordCounterRealTime} from "../../terminal/airline.js";
 import {getCaretPosition, setCaretPosition} from '../data/caret.js'
 
@@ -92,6 +92,5 @@ document.addEventListener('keydown', e => {
     }
 })
 
-
-
+document.getElementById('input-file').addEventListener('change', uploadFile)
 

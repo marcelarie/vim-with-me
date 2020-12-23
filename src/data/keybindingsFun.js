@@ -251,6 +251,9 @@ const normalMode = e => {
                     deleteFile(fileList, mainFiles)
                     nerdTree.focus();
                     break;
+                case 'a':
+                    e.preventDefault();
+                    document.getElementById('input-file').click()
                 default:
                     e.preventDefault();
             }

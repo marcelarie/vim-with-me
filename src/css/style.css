@@ -209,6 +209,19 @@ body {
     font-weight: bold;
 }
 
+/*input-file*/ 
+.input-file {
+    position: fixed;
+    bottom: 15%;
+    border:none;
+    background-color:transparent;
+    box-shadow: none;
+    font-size: 1.2em;
+    font-family: 'Fira Code', monospace;
+    color: var(--gruvbox-green);
+    display: none;
+}
+
 
 /*hide&else classes*/
 .none { display:none; }
