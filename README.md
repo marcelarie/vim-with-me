@@ -24,24 +24,28 @@ Vim clone with JavaScript.
 - [x] Carret move.  
 - [x] Save files.   
     - [x] if file its already saved no need to put name.
-    - [x] if filename exist alert
-    - [x] if current file progress isnt saved alert()
+    - [x] if filename exist alert.
+    - [x] if current file progress isnt saved alert().
     - [x] save multiple files at the same time.
     - [x] check if any of the files haves the current progress.
 - [x] Normal mode.  
-    - [x] move carret
+    - [x] move carret.
 - [ ] Visual mode.  
     - [ ] select words.
-    - [ ] capital V for full line selection
-    - [ ] yy with visual selection yanks that selection
+    - [ ] capital V for full line selection.
+    - [ ] yy with visual selection yanks that selection.
 - [x] Insert mode.   
-    - [x] all keys for writing
+    - [x] all keys for writing.
 - [x] Move with h j k l.   
 - [x] Esc to exit to normal mode.    
 - [x] x to delete a character.     
 - [x] D to delete a line.    
-- [x] yy to copy a line.    
+- [x] yy to copy a line. 
+- [x] p for paste.
+- [ ] :n name-of-file for new file
 - [ ] u to go undo.     
+- [ ] gg goes to line 0.
+- [ ] G goes to end of file.
 - [ ] Cntrl + R to redo.   
 
 <h2 align="center">Phase 3</h2>  
@@ -59,8 +63,9 @@ Vim clone with JavaScript.
 
 - [ ] Colorschemes.   
 - [x] Vimtutor.    
-- [x] LocalStorage
+- [x] LocalStorage.
 - [ ] Save in computer.
+- [ ] Open file from computer.
 
 <h3 align="center">Daily Log</h2>  
 
