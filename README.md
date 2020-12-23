@@ -1,10 +1,13 @@
 ### vim-with-me
 Vim clone with JavaScript.  
 
-![Vim Logo](src/img/vim-logo.png)
+<p align="center">
+    <img src="src/img/vim-logo.png">
+</p>
+<h1 align="center">TODO's</h1>
 
 
-## Phase 1  
+<h2 align="center">Phase 1</h2>  
 
 - [x] Text area.  
 - [x] Left number column.  
@@ -15,7 +18,8 @@ Vim clone with JavaScript.
     - [x] Hide with Esc key.  
     - [x] Add eventListener.  
 
-## Phase 2   
+
+<h2 align="center">Phase 2</h2>     
 
 - [x] Carret move.  
 - [x] Save files.   
@@ -40,7 +44,7 @@ Vim clone with JavaScript.
 - [ ] u to go undo.     
 - [ ] Cntrl + R to redo.   
 
-## Phase 3    
+<h2 align="center">Phase 3</h2>  
 
 - [x] : to open terminal mode.     
 - [x] :%s/word/word-to-replace/g command.    
@@ -51,12 +55,53 @@ Vim clone with JavaScript.
 - [ ] Split screen.   
 - [ ] .vimrc    
 
-## Phase 4    
+<h2 align="center">Phase 4</h2>  
 
 - [ ] Colorschemes.   
 - [x] Vimtutor.    
 - [x] LocalStorage
 - [ ] Save in computer.
 
+<h3 align="center">Daily Log</h2>  
 
-source: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+    - 18/12/2020 -
+    Indexed all the elements on the html div container.
+    Added content editable to div to write.
+    Create the terminal input.
+    Add event listeners for the terminal input ( : and Esc )
+    Created File and Folder classes.
+    Added functions to save files.
+    Added event listeners for insert and normal modes.
+    
+    - 19/12/2020 -
+    Normal mode.
+    Insert mode.
+    Caret move.
+    x to delete a character.
+    Move with h j k l.
+    div to textarea.
+    Change saveFile() to work with textarea.value.
+    Start left number column.
+    
+    - 20/12/2020 -
+    Left number column.
+    Nerd-tree.
+    
+    - 21/12/2020 -
+    Make the terminal input stick to bottom.
+    Airline
+    Finish NerdTree.
+    
+    - 22/12/2020 - 
+    D to delete a line.
+    yy to copy a line.
+    Delete file from nerdTree.
+    p for paste.
+    Add ~~~~ to the background.
+    :%s/word/another/g to replace a word in whole file.
+    Local Storage.
+
+
+
+
+
