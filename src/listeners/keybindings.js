@@ -35,6 +35,7 @@ terminalInput.addEventListener('keydown', e => {
 // calling with :
 const showTerminal = e => {
     if (e.key === ':' && terminalInput.classList.contains('hide')) {
+        e.preventDefault()
         terminalInput.classList.toggle('hide')
         terminalInput.value = ':'
         terminalInput.focus();

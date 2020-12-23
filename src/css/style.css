@@ -141,7 +141,7 @@ body {
     position: absolute;
     z-index: -1;
     color: var(--gruvbox-grey-comment);
-    padding: 3px;
+    padding: 8px 3px;
     font-size: 1.4em;
     font-family: 'Fira Code', monospace;
 }
