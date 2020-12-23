@@ -1,4 +1,4 @@
-### vim-with-me
+### VIM(al)
 Vim clone with JavaScript.  
 
 <p align="center">
