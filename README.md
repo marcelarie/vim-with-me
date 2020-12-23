@@ -65,7 +65,7 @@ Vim clone with JavaScript.
 - [x] Vimtutor.    
 - [x] LocalStorage.
 - [ ] Save in computer.
-- [ ] Open file from computer.
+- [x] Open file from computer.
 
 <h3 align="center">Daily Log</h2>  
 

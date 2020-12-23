@@ -1,6 +1,6 @@
 import {mainFolder} from "../terminal/mainFolder.js"
-import {currentFileId} from '../src/data/keybindingsFun.js'
-import {textArea} from '../terminal/main.js'
+import {currentFileId, saveFile} from '../src/data/keybindingsFun.js'
+import {textArea, numberCol} from '../terminal/main.js'
 
 function addNerdFiles() {
     const nerdTree = document.getElementById('nerd-tree')
@@ -35,25 +35,32 @@ function deleteFile(fileList, folder) {
             delete folder[selectedFile]
         }
         addNerdFiles();
+        currentFileMark()
         // saving progress on localStorage.
         localStorage.setItem('files', JSON.stringify(mainFolder.files))
     })
 }
 
 
+// upload file from local
 function uploadFile(event) {
+    const nerdTree = document.getElementById('nerd-tree-container')
     const input = event.target
     if ('files' in input && input.files.length > 0) {
+        const name = [':w', input.files[0].name]
         placeFileContent(textArea, input.files[0])
+        saveFile(name)
+        nerdTree.classList.toggle('none')
+        if (nerdTree.classList.contains('none')) {
+            numberCol.classList.toggle('left-border-text-area')
+        }
     }
 }
-
 function placeFileContent(target, file) {
     readFileContent(file).then(content => {
         target.value = content
     }).catch(error => console.log(error))
 }
-
 function readFileContent(file) {
     const reader = new FileReader()
     return new Promise((resolve, reject) => {
