@@ -105,6 +105,10 @@ Vim clone with JavaScript.
     Add ~~~~ to the background.
     :%s/word/another/g to replace a word in whole file.
     Local Storage.
+    
+    - 22/12/2020 -
+    Vimtutor
+    Open file from browser.
 
 
 
