@@ -1,7 +1,7 @@
 ### vim-with-me
 Vim clone with JavaScript.  
 
-![Vim Logo](https://download.logo.wine/logo/Vim_(text_editor)/Vim_(text_editor)-Logo.wine.png)
+![Vim Logo](src/img/vim-logo.png)
 
 
 ## Phase 1  
