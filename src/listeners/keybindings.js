@@ -1,12 +1,10 @@
-import {Folder} from "../model/folder.js";
-import {File} from "../model/file.js";
+import {showWordCounterRealTime, showWordCounterTotal} from "../../terminal/airline.js";
+import {lineNumber, numberCol, terminalInput, textArea} from '../../terminal/main.js';
 import {mainFolder} from "../../terminal/mainFolder.js";
-import {textArea, terminalInput, lineNumber, numberCol} from '../../terminal/main.js';
-import {modeManager, vimModes, saveFile, quit, substitutePattern} from '../data/keybindingsFun.js';
-import {getLines} from '../data/normal.js'
-import {addNerdFiles, currentFileMark, uploadFile} from '../../terminal/nerdTree.js'
-import {showLanguage, showWordCounterTotal, showWordCounterRealTime} from "../../terminal/airline.js";
-import {getCaretPosition, setCaretPosition} from '../data/caret.js'
+import {addNerdFiles, currentFileMark, uploadFile} from '../../terminal/nerdTree.js';
+import {getCaretPosition} from '../data/caret.js';
+import {modeManager, quit, saveFile, substitutePattern, vimModes} from '../data/keybindingsFun.js';
+import {getLines} from '../data/normal.js';
 
 
 // Add event listener to terminal input

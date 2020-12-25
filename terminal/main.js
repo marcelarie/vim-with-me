@@ -1,9 +1,7 @@
 
-import {Folder} from "../src/model/folder.js"
-import {File} from "../src/model/file.js"
-import {mainFolder} from "../terminal/mainFolder.js"
 import {getLines} from '../src/data/normal.js';
-import {showFilePath} from '../terminal/airline.js'
+import {showFilePath} from '../terminal/airline.js';
+import {mainFolder} from "../terminal/mainFolder.js";
 
 // HTML
 export const container = document.getElementById('container')
@@ -14,6 +12,8 @@ export const nerdTree = document.createElement('div')
 const nerdTreeContainer = document.createElement('div')
 const specialCharacters = document.createElement('div')
 const inputFile = document.createElement('input')
+
+
 
 
 // Creating the text area.
@@ -114,6 +114,6 @@ showFilePath(Object.keys(mainFolder), '');
 
 
 
-export {lineNumber}
+export {lineNumber};
 
 

@@ -1,11 +1,10 @@
-import {lineNumber} from '../../terminal/main.js'
-import {mainFolder} from "../../terminal/mainFolder.js"
-import {textArea, terminalInput, numberCol} from '../../terminal/main.js'
-import {getCaretPosition, setCaretPosition, setSelectionRange, followCaret, caretPosition} from '../data/caret.js';
+import {showFilePath, showLanguage, showVimMode} from '../../terminal/airline.js';
+import {lineNumber, numberCol, terminalInput, textArea} from '../../terminal/main.js';
+import {mainFolder} from "../../terminal/mainFolder.js";
+import {deleteFile} from '../../terminal/nerdTree.js';
+import {caretPosition, followCaret, getCaretPosition, setCaretPosition} from '../data/caret.js';
 import {deleteCharOnPosition, getLines} from '../data/normal.js';
-import {showVimMode, showFilePath, showLanguage, showWordCounterTotal, showWordCounterRealTime} from '../../terminal/airline.js'
-import {positionsToLine} from '../data/up-down-movements.js'
-import {deleteFile} from '../../terminal/nerdTree.js'
+import {positionsToLine} from '../data/up-down-movements.js';
 
 // vim modes
 const vimModes = {normal: true, insert: false, visual: false, }
@@ -275,4 +274,4 @@ document.addEventListener('keydown', insertMode)
 
 
 
-export {modeManager, vimModes, saveFile, quit, substitutePattern}
+export {modeManager, vimModes, saveFile, quit, substitutePattern};
