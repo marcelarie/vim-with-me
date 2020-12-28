@@ -226,10 +226,12 @@ body {
 .none { display:none; }
 .hide { visibility: hidden; }
 .greenCaret { caret-color: var(--gruvbox-green); }
+
 ::selection {
   color: var(--gruvbox-background);
   background: var(--gruvbox-light-green);
 }
+
 .left-border-text-area {
     border-left: var(--gruvbox-grey-dark) 5px solid;
 }

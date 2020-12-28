@@ -62,7 +62,6 @@ function saveFile(fileNames) {
                 textArea.value = '\n'
                 mainFolder.files[currentFile(currentFileId)].content = textArea.value;
             }
-            console.log(mainFolder)
             terminalInput.value = '';
             terminalInput.classList.toggle('hide')
 
@@ -236,11 +235,13 @@ const normalMode = e => {
                         }
                     })
                     break;
+                // to delete a file from the nerdTree 
                 case 'D':
                     e.preventDefault();
                     deleteFile(fileList, mainFiles)
                     nerdTree.focus();
                     break;
+                // to add a file from local
                 case 'a':
                     e.preventDefault();
                     document.getElementById('input-file').click()

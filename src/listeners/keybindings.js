@@ -12,17 +12,17 @@ terminalInput.addEventListener('keydown', e => {
     //for Enter
     if (e.key === 'Enter') {
         e.preventDefault();
-        if (terminalInput.value.includes(':w')) {
+        if (terminalInput.value.includes(':w')) {                // save 
             let fileNames = terminalInput.value.split(' ')
             saveFile(fileNames);
-        } else if (terminalInput.value.includes(':q')) {
+        } else if (terminalInput.value.includes(':q')) {        // quit
             const mainFiles = Object.values(mainFolder.files)
             quit(mainFiles);
-        } else if (terminalInput.value.startsWith(':%s/')) {
+        } else if (terminalInput.value.startsWith(':%s/')) {    // substitutePattern -> :%s/word/new-word/g
             substitutePattern(terminalInput.value)
-        } else if (terminalInput.value.includes('command not found')) {
+        } else if (terminalInput.value.includes('command not found')) {     // reset terminal to :
             terminalInput.value = ":"
-        } else if (terminalInput.value.includes('Filename already exists.') || terminalInput.value.includes('Please add a name to the file.')) {
+        } else if (terminalInput.value.includes('Filename already exists.') || terminalInput.value.includes('Please add a name to the file.')) {    // reset terminal to :w
             terminalInput.value = ":w "
         } else {
             terminalInput.value = "command not found"
@@ -78,7 +78,6 @@ textArea.addEventListener('keydown', e => {
 
 
 // listener on nerdTree 
-
 document.addEventListener('keydown', e => {
     if (e.key === 'N' && vimModes.normal === true && terminalInput.classList.contains('hide')) {
         const nerdTree = document.getElementById('nerd-tree-container')

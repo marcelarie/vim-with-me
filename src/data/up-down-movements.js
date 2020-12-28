@@ -11,6 +11,7 @@ function positionsToLine(text, position) {
 }
 
 
+
 function extractPosition(text, line, position, direction) {
     const splittedLines = Object.values(getLines(text));
     if (direction === 'up') {
