@@ -1,4 +1,4 @@
-import {showWordCounterRealTime, showWordCounterTotal} from "../../terminal/airline.js";
+import {showWordCounterRealTime, getTotalWordCounter} from "../../terminal/airline.js";
 import {lineNumber, numberCol, terminalInput, textArea} from '../../terminal/main.js';
 import {mainFolder} from "../../terminal/mainFolder.js";
 import {addNerdFiles, currentFileMark, uploadFile} from '../../terminal/nerdTree.js';
@@ -73,7 +73,7 @@ textArea.addEventListener('input', () => {
 })
 
 textArea.addEventListener('keydown', e => {
-    showWordCounterRealTime(showWordCounterTotal(textArea), getCaretPosition(e))
+    showWordCounterRealTime(getTotalWordCounter(textArea), getCaretPosition(e))
 })
 
 

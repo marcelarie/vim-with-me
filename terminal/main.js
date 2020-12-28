@@ -28,7 +28,7 @@ function addTextArea() {
     specialCharacters.textContent = `~~~~~~~~~~~~`
     //nerd tree
     nerdTree.classList.add('nerd-tree')
-    nerdTreeContainer.classList.add('none')
+    nerdTreeContainer.classList.add('none', 'nerd-tree-container')
     nerdTree.id = 'nerd-tree'
     nerdTreeContainer.id = 'nerd-tree-container'
     // input 

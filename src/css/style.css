@@ -40,10 +40,11 @@ body {
 
 #container { position: relative;}
 .text-area {
+    margin-left:0.3rem;
     background-color: var(--gruvbox-background); 
     color: var(--gruvbox-fg);
     font-size: 1.5em;
-    line-height: 1.2em;
+    line-height: 1.18em;
     font-family: 'Fira Code', monospace;
     outline: none;
     border: none;
@@ -51,16 +52,15 @@ body {
     resize: none;
     min-height: 100vh;
     overflow: hidden;
-    padding: 10px;
     white-space: pre;
 }
 .number-column {
+    margin-left:0.5rem;
     color: var(--gruvbox-grey-comment);
     font-size: 1.4em;
     font-family: 'Fira Code', monospace;
     display: flex;
     flex-direction: column;
-    padding: 10px;
     min-height: 100vh;
 }
 .number-left {
@@ -92,7 +92,7 @@ body {
 }
 
 /*nerd-tree*/
-#nerd-tree-container {
+.nerd-tree-container {
     height: 100vh;
     background-color: var(--gruvbox-background);
     min-width: 15em;
@@ -141,7 +141,6 @@ body {
     position: absolute;
     z-index: -1;
     color: var(--gruvbox-grey-comment);
-    padding: 8px 3px;
     font-size: 1.4em;
     font-family: 'Fira Code', monospace;
 }

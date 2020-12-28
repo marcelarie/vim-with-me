@@ -143,20 +143,11 @@ const normalMode = e => {
         if (nerdTree.classList.contains('none')) {
             switch (e.key) {
                 case 'h':
-                    e.preventDefault();
-                    followCaret(textArea, getCaretPosition(e), 'h');
-                    break;
                 case 'j':
-                    e.preventDefault();
-                    followCaret(textArea, getCaretPosition(e), 'j');
-                    break;
                 case 'k':
-                    e.preventDefault();
-                    followCaret(textArea, getCaretPosition(e), 'k');
-                    break;
                 case 'l':
                     e.preventDefault();
-                    followCaret(textArea, getCaretPosition(e), 'l');
+                    followCaret(textArea, getCaretPosition(e), e.key);
                     break;
                 case 'i':
                     e.preventDefault();
